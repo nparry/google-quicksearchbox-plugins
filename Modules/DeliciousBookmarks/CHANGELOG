@@ -1,0 +1,8 @@
+Delicious bookmarks plugin
+
+v0.1
+* Search by your Delicious bookmarks/tags
+* Pivot on tags
+* Username/password is currently hardcoded - needs support for custom account types
+* Delicious icon is not super pretty since I made it myself
+
