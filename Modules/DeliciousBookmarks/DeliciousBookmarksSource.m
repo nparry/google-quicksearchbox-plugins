@@ -31,21 +31,19 @@
 #import "KeychainItem.h"
 #import "DeliciousClient.h"
 
-static NSString *const kHardcodedDeliciousUsername 
-	= @"your_username";
-
-static NSString *const kHardcodedDeliciousPassword
-	= @"your_password";
-
 static NSString *const kObjectAttributeDeliciousTags 
 	= @"ObjectAttributeDeliciousTags";
 
-@interface DeliciousBookmarksSourc : HGSMemorySearchSource <HGSAccountClientProtocol> {
+@interface DeliciousBookmarksSource : HGSMemorySearchSource <HGSAccountClientProtocol> {
 	NSTimer *updateTimer_;
 	DeliciousClient *deliciousClient_;
 	BOOL currentlyFetching_;
 	NSString *accountIdentifier_;
 	NSImage *tagIcon_;
+	
+	// Use these until we have real account support
+	NSString *username_;
+	NSString *password_;
 }
 - (void)setUpPeriodicRefresh;
 - (void)startAsynchronousBookmarkFetch;
@@ -69,8 +67,55 @@ static NSString *const kObjectAttributeDeliciousTags
 		NSString *iconPath = [sourceBundle pathForImageResource:@"delicious"];
 		tagIcon_ = [[NSImage alloc] initByReferencingFile:iconPath];
 		
+		/*******************************************************************
+		 This section will be removed once we have support for
+		 non-google account types
+		 */
+		
+		BOOL foundUserInfo = NO;
+		NSString *path = [[[HGSModuleLoader sharedModuleLoader] delegate] userApplicationSupportFolderForApp];
+		NSDirectoryEnumerator* dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:path];
+		NSString* file = nil;
+		while ((file = [dirEnum nextObject])) {
+			[dirEnum skipDescendents];
+			if ([file isEqualToString:@"DeliciousUserInfo.plist"]) {
+				NSString* fullPath = [path stringByAppendingPathComponent:file];
+				NSData *data = [[NSFileManager defaultManager] contentsAtPath:fullPath];
+				
+				NSString *errorDesc = nil;
+				NSPropertyListFormat format;
+				NSDictionary *temp =
+					(NSDictionary *)[NSPropertyListSerialization
+									 propertyListFromData:data
+										 mutabilityOption:NSPropertyListMutableContainersAndLeaves
+												   format:&format errorDescription:&errorDesc];
+				if (!temp) {
+					HGSLogDebug(@"Error opening plist file");
+					[errorDesc release];
+				}
+				else {
+					username_ = [temp objectForKey:@"username"];
+					password_ = [temp objectForKey:@"password"];
+					foundUserInfo = YES;					
+					break;
+				}
+			}
+		}
+		
+		if (!foundUserInfo) {
+			HGSLogDebug(@"Missing account information");
+			[self release];
+			self = nil;
+			return self;
+		}
+		
 		[self startAsynchronousBookmarkFetch];
 		[self setUpPeriodicRefresh];
+		
+		/*
+		 End section to remove
+		 *******************************************************************/
+		
 		
 		/*
 		id<HGSAccount> account
@@ -107,6 +152,9 @@ static NSString *const kObjectAttributeDeliciousTags
 	[accountIdentifier_ release];
 	[tagIcon_ release];
 	
+	[username_ release];
+	[password_ release];
+	
 	[super dealloc];
 }
 
@@ -130,8 +178,8 @@ static NSString *const kObjectAttributeDeliciousTags
 		deliciousClient_ = [[DeliciousClient alloc] initWithUsername:[keychainItem username]
 															password:[keychainItem password]];
 		 */
-		deliciousClient_ = [[DeliciousClient alloc] initWithUsername:kHardcodedDeliciousUsername
-															password:kHardcodedDeliciousPassword];
+		deliciousClient_ = [[DeliciousClient alloc] initWithUsername:username_
+															password:password_];
 	}
 	
 	// If we are still marked as fetching, something must have gone wrong with

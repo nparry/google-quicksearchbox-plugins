@@ -3,6 +3,7 @@ Delicious bookmarks plugin
 v0.1
 * Search by your Delicious bookmarks/tags
 * Pivot on tags
-* Username/password is currently hardcoded - needs support for custom account types
+* Username/password is currently saved in a plist
+  file - need support for custom account types within QSB itself
 * Delicious icon is not super pretty since I made it myself
 
