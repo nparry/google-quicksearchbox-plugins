@@ -1,6 +1,7 @@
 Delicious bookmarks plugin
 
 v0.1
+Pre-built: http://nparry.com/software/google-quicksearchbox-plugins/delicious/Google-QSB-Delicious-v0.1.zip
 * Search by your Delicious bookmarks/tags
 * Pivot on tags
 * Username/password is currently saved in a plist
