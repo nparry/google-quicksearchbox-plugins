@@ -22,6 +22,18 @@
 	<array>
 		<dict>
 			<key>HGSExtensionClass</key>
+			<string>DeliciousAccount</string>
+			<key>HGSExtensionIdentifier</key>
+			<string>com.google.qsb.deliciousbookmarks.account</string>
+			<key>HGSExtensionUserVisibleName</key>
+			<string>Delicious Accounts</string>
+			<key>HGSExtensionPoint</key>
+			<string>HGSAccountsExtensionPoint</string>
+			<key>HGSExtensionOfferedAccountType</key>
+			<string>Delicious</string>
+		</dict>
+		<dict>
+			<key>HGSExtensionClass</key>
 			<string>DeliciousBookmarksSource</string>
 			<key>HGSExtensionIdentifier</key>
 			<string>com.google.qsb.deliciousbookmarks.source</string>

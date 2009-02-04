@@ -36,7 +36,7 @@ static NSString *const kAllBookmarksURL
 	= @"https://api.del.icio.us/v1/posts/all";
 
 static NSString *const kPluginUserAgent
-	= @"GoogleQuickSearchBoxDeliciousPlugin/0.1";
+	= @"GoogleQuickSearchBoxDeliciousPlugin/0.2";
 
 @interface DeliciousClient (PrivateMethods)
 - (void)runUpdateCycle;
