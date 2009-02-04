@@ -31,6 +31,10 @@
 			<string>Delicious Bookmarks</string>
 			<key>HGSSearchSourcePivotableTypes</key>
 			<string>webpage.delicioustag</string>
+			<key>HGSExtensionDesiredAccountType</key>
+			<string>Delicious</string>
+			<key>HGSIsEnabledByDefault</key>
+			<true/>
 		</dict>
 	</array>
 </dict>

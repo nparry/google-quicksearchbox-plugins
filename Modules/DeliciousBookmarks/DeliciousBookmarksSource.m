@@ -40,10 +40,6 @@ static NSString *const kObjectAttributeDeliciousTags
 	BOOL currentlyFetching_;
 	NSString *accountIdentifier_;
 	NSImage *tagIcon_;
-	
-	// Use these until we have real account support
-	NSString *username_;
-	NSString *password_;
 }
 - (void)setUpPeriodicRefresh;
 - (void)startAsynchronousBookmarkFetch;
@@ -66,58 +62,6 @@ static NSString *const kObjectAttributeDeliciousTags
 		NSBundle* sourceBundle = HGSGetPluginBundle();
 		NSString *iconPath = [sourceBundle pathForImageResource:@"delicious"];
 		tagIcon_ = [[NSImage alloc] initByReferencingFile:iconPath];
-		
-		/*******************************************************************
-		 This section will be removed once we have support for
-		 non-google account types
-		 */
-		
-		BOOL foundUserInfo = NO;
-		NSString *path = [[[HGSModuleLoader sharedModuleLoader] delegate] userApplicationSupportFolderForApp];
-		NSDirectoryEnumerator* dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:path];
-		NSString* file = nil;
-		while ((file = [dirEnum nextObject])) {
-			[dirEnum skipDescendents];
-			if ([file isEqualToString:@"DeliciousUserInfo.plist"]) {
-				NSString* fullPath = [path stringByAppendingPathComponent:file];
-				NSData *data = [[NSFileManager defaultManager] contentsAtPath:fullPath];
-				
-				NSString *errorDesc = nil;
-				NSPropertyListFormat format;
-				NSDictionary *temp =
-					(NSDictionary *)[NSPropertyListSerialization
-									 propertyListFromData:data
-										 mutabilityOption:NSPropertyListMutableContainersAndLeaves
-												   format:&format errorDescription:&errorDesc];
-				if (!temp) {
-					HGSLogDebug(@"Error opening plist file");
-					[errorDesc release];
-				}
-				else {
-					username_ = [temp objectForKey:@"username"];
-					password_ = [temp objectForKey:@"password"];
-					foundUserInfo = YES;					
-					break;
-				}
-			}
-		}
-		
-		if (!foundUserInfo) {
-			HGSLogDebug(@"Missing account information");
-			[self release];
-			self = nil;
-			return self;
-		}
-		
-		[self startAsynchronousBookmarkFetch];
-		[self setUpPeriodicRefresh];
-		
-		/*
-		 End section to remove
-		 *******************************************************************/
-		
-		
-		/*
 		id<HGSAccount> account
 			= [configuration objectForKey:kHGSExtensionAccountIdentifier];
 		accountIdentifier_ = [[account identifier] retain];
@@ -137,7 +81,6 @@ static NSString *const kObjectAttributeDeliciousTags
 			[self release];
 			self = nil;
 		}
-		 */
 	}
 	return self;
 }
@@ -152,9 +95,6 @@ static NSString *const kObjectAttributeDeliciousTags
 	[accountIdentifier_ release];
 	[tagIcon_ release];
 	
-	[username_ release];
-	[password_ release];
-	
 	[super dealloc];
 }
 
@@ -163,7 +103,6 @@ static NSString *const kObjectAttributeDeliciousTags
 
 - (void)startAsynchronousBookmarkFetch {
 	if (!deliciousClient_) {
-		/*
 		KeychainItem* keychainItem 
 		= [KeychainItem keychainItemForService:accountIdentifier_
 									  username:nil];
@@ -177,9 +116,6 @@ static NSString *const kObjectAttributeDeliciousTags
 		}
 		deliciousClient_ = [[DeliciousClient alloc] initWithUsername:[keychainItem username]
 															password:[keychainItem password]];
-		 */
-		deliciousClient_ = [[DeliciousClient alloc] initWithUsername:username_
-															password:password_];
 	}
 	
 	// If we are still marked as fetching, something must have gone wrong with
@@ -214,7 +150,6 @@ static NSString *const kObjectAttributeDeliciousTags
 }
 
 - (void)loginCredentialsChanged:(id)object {
-	/*
 	if ([accountIdentifier_ isEqualToString:object]) {
 		// Make sure we aren't in the middle of waiting for results; if we are, try
 		// again later instead of changing things in the middle of the fetch.
@@ -235,7 +170,6 @@ static NSString *const kObjectAttributeDeliciousTags
 		[self startAsynchronousBookmarkFetch];
 		[self setUpPeriodicRefresh];
 	}
-	 */
 }
 
 #pragma mark -
@@ -346,7 +280,6 @@ static NSString *const kObjectAttributeDeliciousTags
 
 - (BOOL)accountWillBeRemoved:(id<HGSAccount>)account {
 	BOOL removeMe = NO;
-	/*
 	NSString *accountIdentifier = [account identifier];
 	if ([accountIdentifier_ isEqualToString:accountIdentifier]) {
 		if (currentlyFetching_) {
@@ -356,7 +289,7 @@ static NSString *const kObjectAttributeDeliciousTags
 		deliciousClient_ = nil;
 		removeMe = YES;
 	}
-	 */
+	
 	return removeMe;
 }
 
