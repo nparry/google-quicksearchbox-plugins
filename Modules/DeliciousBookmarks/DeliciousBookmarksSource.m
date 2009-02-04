@@ -102,31 +102,34 @@ static NSString *const kObjectAttributeDeliciousTags
 #pragma mark Bookmarks Fetching
 
 - (void)startAsynchronousBookmarkFetch {
-	if (!deliciousClient_) {
-		KeychainItem* keychainItem 
-		= [KeychainItem keychainItemForService:accountIdentifier_
-									  username:nil];
-		if (!keychainItem ||
-			[[keychainItem username] length] == 0 ||
-			[[keychainItem password] length] == 0) {
-			// Can't do much without a login; invalidate so we stop trying (until
-			// we get a notification that the credentials have changed) and bail.
-			[updateTimer_ invalidate];
-			return;
+	@synchronized(self) {
+		// If we are still marked as fetching, something must have gone wrong with
+		// the last update.  Try to clean it up
+		if (deliciousClient_ && currentlyFetching_) {
+			[deliciousClient_ cancelUpdate];
 		}
-		deliciousClient_ = [[DeliciousClient alloc] initWithUsername:[keychainItem username]
-															password:[keychainItem password]];
+		
+		if (!deliciousClient_) {
+			KeychainItem* keychainItem 
+			= [KeychainItem keychainItemForService:accountIdentifier_
+										  username:nil];
+			if (!keychainItem ||
+				[[keychainItem username] length] == 0 ||
+				[[keychainItem password] length] == 0) {
+				// Can't do much without a login; invalidate so we stop trying (until
+				// we get a notification that the credentials have changed) and bail.
+				[updateTimer_ invalidate];
+				return;
+			}
+			deliciousClient_ = [[DeliciousClient alloc] initWithUsername:[keychainItem username]
+																password:[keychainItem password]];
+		}
+		
+		// Mark us as in the middle of a fetch so that if credentials change during
+		// a fetch we don't destroy the service out from under ourselves.
+		currentlyFetching_ = YES;
 	}
 	
-	// If we are still marked as fetching, something must have gone wrong with
-	// the last update.  Try to clean it up
-	if (currentlyFetching_) {
-		[deliciousClient_ cancelUpdate];
-	}
-	
-	// Mark us as in the middle of a fetch so that if credentials change during
-	// a fetch we don't destroy the service out from under ourselves.
-	currentlyFetching_ = YES;
 	[deliciousClient_ returnUpdatedDataTo:self
 					handleNewDataSelector:@selector(bookmarkUpdateProducedNewBookmarks:forUser:)
 				   handleNoChangeSelector:@selector(bookmarkUpdateProducedNoChange)
@@ -151,18 +154,20 @@ static NSString *const kObjectAttributeDeliciousTags
 
 - (void)loginCredentialsChanged:(id)object {
 	if ([accountIdentifier_ isEqualToString:object]) {
-		// Make sure we aren't in the middle of waiting for results; if we are, try
-		// again later instead of changing things in the middle of the fetch.
-		if (currentlyFetching_) {
-			[self performSelector:@selector(loginCredentialsChanged:)
-					   withObject:nil
-					   afterDelay:60.0];
-			return;
+		@synchronized(self) {
+			// Make sure we aren't in the middle of waiting for results; if we are, try
+			// again later instead of changing things in the middle of the fetch.
+			if (currentlyFetching_) {
+				[self performSelector:@selector(loginCredentialsChanged:)
+						   withObject:nil
+						   afterDelay:60.0];
+				return;
+			}
+			
+			// Clear the client so that we make a new one with the correct credentials.
+			[deliciousClient_ release];
+			deliciousClient_ = nil;
 		}
-		
-		// Clear the client so that we make a new one with the correct credentials.
-		[deliciousClient_ release];
-		deliciousClient_ = nil;
 
 		// If the login changes, we should update immediately, and make sure the
 		// periodic refresh is enabled (it would have been shut down if the previous
@@ -176,7 +181,10 @@ static NSString *const kObjectAttributeDeliciousTags
 #pragma mark Bookmark indexing
 
 - (void)bookmarkUpdateFailedWithError:(NSError *)error {
-	currentlyFetching_ = NO;
+	@synchronized(self) {
+		currentlyFetching_ = NO;
+	}
+	
 	if ([error code] == 403) {
 		// If the login credentials are bad, don't keep trying.
 		[updateTimer_ invalidate];
@@ -184,11 +192,15 @@ static NSString *const kObjectAttributeDeliciousTags
 }
 
 - (void)bookmarkUpdateProducedNoChange {
-	currentlyFetching_ = NO;
+	@synchronized(self) {
+		currentlyFetching_ = NO;
+	}
 }
 
 - (void)bookmarkUpdateProducedNewBookmarks:(NSArray *)bookmarks forUser:(NSString *)username {
-	currentlyFetching_ = NO;
+	@synchronized(self) {
+		currentlyFetching_ = NO;
+	}
 
 	NSMutableSet *allTags = [NSMutableSet setWithCapacity:50];
 	
@@ -282,11 +294,13 @@ static NSString *const kObjectAttributeDeliciousTags
 	BOOL removeMe = NO;
 	NSString *accountIdentifier = [account identifier];
 	if ([accountIdentifier_ isEqualToString:accountIdentifier]) {
-		if (currentlyFetching_) {
-			[deliciousClient_ cancelUpdate];
+		@synchronized(self) {
+			if (currentlyFetching_) {
+				[deliciousClient_ cancelUpdate];
+			}
+			[deliciousClient_ release];
+			deliciousClient_ = nil;
 		}
-		[deliciousClient_ release];
-		deliciousClient_ = nil;
 		removeMe = YES;
 	}
 	
