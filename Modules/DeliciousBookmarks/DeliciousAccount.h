@@ -1,4 +1,4 @@
-#import <Vermilion/Vermilion.h>
+#import <Vermilion/HGSSimpleAccount.h>
 
 @interface DeliciousAccountEditController : HGSSimpleAccountEditController
 

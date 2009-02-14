@@ -1,8 +1,7 @@
-#import "DeliciousAccount.h"
-#import "HGSAccountsExtensionPoint.h"
-#import "HGSBundle.h"
-#import "HGSLog.h"
-#import "KeychainItem.h"
+#import <DeliciousAccount.h>
+#import <Vermilion/HGSAccountsExtensionPoint.h>
+#import <Vermilion/HGSBundle.h>
+#import <Vermilion/HGSLog.h>
 
 static NSString *const kSetUpDeliciousAccountViewNibName
   = @"SetUpDeliciousAccountView";

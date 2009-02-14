@@ -1,0 +1,1226 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		454124CD0F467F4A0088B900 /* QSB with custom Plugins */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 454124D00F467F850088B900 /* Build configuration list for PBXAggregateTarget "QSB with custom Plugins" */;
+			buildPhases = (
+				454124E60F4680A60088B900 /* CopyFiles */,
+			);
+			dependencies = (
+				454124D40F467F950088B900 /* PBXTargetDependency */,
+				454124D20F467F910088B900 /* PBXTargetDependency */,
+				454124DF0F4680450088B900 /* PBXTargetDependency */,
+			);
+			name = "QSB with custom Plugins";
+			productName = "QSB with custom Plugins";
+		};
+		795F071909870215004C6BFE /* Test All */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 795F072609870248004C6BFE /* Build configuration list for PBXAggregateTarget "Test All" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = "Test All";
+			productName = "Test All";
+		};
+		F4EF8F740ECB3EFF008DD6DA /* Build All */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F4EF8F770ECB3F50008DD6DA /* Build configuration list for PBXAggregateTarget "Build All" */;
+			buildPhases = (
+			);
+			dependencies = (
+				45B007E50F3948E700CE0C75 /* PBXTargetDependency */,
+				457DD9790F3FD99C009ECE66 /* PBXTargetDependency */,
+				454124E10F4680570088B900 /* PBXTargetDependency */,
+			);
+			name = "Build All";
+			productName = "Add Plugins To QSB";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		454121860F4531710088B900 /* DeliciousAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 45411E160F4528800088B900 /* DeliciousAccount.m */; };
+		454121870F4531710088B900 /* DeliciousClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 45411E1A0F4528800088B900 /* DeliciousClient.m */; };
+		454121880F4531710088B900 /* DeliciousBookmarksSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 45411E180F4528800088B900 /* DeliciousBookmarksSource.m */; };
+		454121890F4531820088B900 /* delicious.icns in Resources */ = {isa = PBXBuildFile; fileRef = 45411E140F4528800088B900 /* delicious.icns */; };
+		4541218A0F45318D0088B900 /* SetUpDeliciousAccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45411E1D0F4528800088B900 /* SetUpDeliciousAccountView.xib */; };
+		4541218B0F45318D0088B900 /* EditDeliciousAccount.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45411E1B0F4528800088B900 /* EditDeliciousAccount.xib */; };
+		4541218C0F4531A60088B900 /* MoveToTrashAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 45411E230F4528800088B900 /* MoveToTrashAction.m */; };
+		454124940F467CC00088B900 /* Vermilion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4541213D0F4530FE0088B900 /* Vermilion.framework */; };
+		454124A60F467D3C0088B900 /* HGSBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 454124A50F467D3C0088B900 /* HGSBundle.m */; };
+		454124A70F467D3C0088B900 /* HGSBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 454124A50F467D3C0088B900 /* HGSBundle.m */; };
+		454124AB0F467D650088B900 /* Vermilion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4541213D0F4530FE0088B900 /* Vermilion.framework */; };
+		454124E70F4680E20088B900 /* DeliciousBookmarks.hgs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45B007C10F39488F00CE0C75 /* DeliciousBookmarks.hgs */; };
+		454124E80F4680E80088B900 /* ExtraFileActions.hgs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457DD9420F3FD912009ECE66 /* ExtraFileActions.hgs */; };
+		457DD9F50F3FE110009ECE66 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457DD9F40F3FE110009ECE66 /* CoreFoundation.framework */; };
+		457DDA2D0F3FE737009ECE66 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5717A80DB7C84F00D95EBD /* Cocoa.framework */; };
+		45B007BB0F39488E00CE0C75 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E429DF760AC1907A00E747D8 /* Security.framework */; };
+		45B007BC0F39488E00CE0C75 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
+		45B008290F394A1100CE0C75 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5717A80DB7C84F00D95EBD /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		454121380F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B3EED7C0CEA86A100D933C0;
+			remoteInfo = "QSB Core";
+		};
+		4541213A0F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8BD97D0A0E636D8C00F5C83B;
+			remoteInfo = GTM;
+		};
+		4541213C0F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B6F2CE10DA2B7F50052CA40;
+			remoteInfo = Vermilion;
+		};
+		4541213E0F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B77E0DC0F28FC3B00FA2A3C;
+			remoteInfo = GData;
+		};
+		454121400F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B63DD9F0D9458E500395A2B;
+			remoteInfo = "QSB Core Test";
+		};
+		454121420F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E4F551330DF73059008A846E;
+			remoteInfo = "Vermilion Test";
+		};
+		454121440F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E46933050DDB7A0200C5A64A;
+			remoteInfo = Actions;
+		};
+		454121460F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B20E44B0DB432BA001E429B;
+			remoteInfo = "AppleScript Plugins";
+		};
+		454121480F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B6F2F4E0DA2C37C0052CA40;
+			remoteInfo = Applications;
+		};
+		4541214A0F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B3D2A380EAFDA66004EA504;
+			remoteInfo = "Application UI";
+		};
+		4541214C0F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F4E3B5890EB6573300CB713D;
+			remoteInfo = Calculator;
+		};
+		4541214E0F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 33EEA68B0DD0D9C0005766AB;
+			remoteInfo = "Camino Bookmarks";
+		};
+		454121500F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 623FA35F0E5C8D97003630C1;
+			remoteInfo = ChatBuddies;
+		};
+		454121520F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B6F2F2E0DA2BB660052CA40;
+			remoteInfo = Contacts;
+		};
+		454121540F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F4FEECDA0EC4BF99000758EC;
+			remoteInfo = CorePlugin;
+		};
+		454121560F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B3D267E0EAE8E7A004EA504;
+			remoteInfo = "Developer Documentation";
+		};
+		454121580F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7F9415D60EEF52970049AE06;
+			remoteInfo = "Directory Scanner";
+		};
+		4541215A0F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 623ADD450EC0CC17001651D1;
+			remoteInfo = "Email URL Action";
+		};
+		4541215C0F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 33D2CAE00DD24C2500C1FBDC;
+			remoteInfo = "Google Bookmarks";
+		};
+		4541215E0F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7F5626100EF31C060030E922;
+			remoteInfo = "Google Corpora";
+		};
+		454121600F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 33D2C5F30DD1068000C1FBDC;
+			remoteInfo = "Google Docs";
+		};
+		454121620F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B735FA80EC905E900E74421;
+			remoteInfo = "Images AppleScript";
+		};
+		454121640F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5AF2C4860E5E19A400F4D546;
+			remoteInfo = iTunes;
+		};
+		454121660F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8BCCD17B0EC8D86900688D64;
+			remoteInfo = "iTunes AppleScript";
+		};
+		454121680F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8BCCD3740EC8F93C00688D64;
+			remoteInfo = "Networking AppleScript";
+		};
+		4541216A0F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6263CAFB0EB79F3600FF03A1;
+			remoteInfo = Picasaweb;
+		};
+		4541216C0F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 627FAECA0DF9D73500E3E765;
+			remoteInfo = "Recent Documents";
+		};
+		4541216E0F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 33D2C40D0DD0E6C500C1FBDC;
+			remoteInfo = "Safari Bookmarks";
+		};
+		454121700F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7F9415CC0EEF52930049AE06;
+			remoteInfo = "Shared File List";
+		};
+		454121720F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7F5626110EF31C060030E922;
+			remoteInfo = Shortcuts;
+		};
+		454121740F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B6F2EF90DA2BA260052CA40;
+			remoteInfo = "Spotlight Files";
+		};
+		454121760F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8BCCD26D0EC8E5EC00688D64;
+			remoteInfo = "System AppleScript";
+		};
+		454121780F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7FF019BD0EB089CB001A2C7B;
+			remoteInfo = Terminal;
+		};
+		4541217A0F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8BCCD2DD0EC8F8C200688D64;
+			remoteInfo = "Volume AppleScript";
+		};
+		4541217C0F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F4E3B70B0EB66AA900CB713D;
+			remoteInfo = Weather;
+		};
+		4541217E0F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 62EA8BCD0F2E7DE200C92E0B;
+			remoteInfo = GoogleAccounts;
+		};
+		454121800F4530FE0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 62A4AC8A0F2FCD950007CD99;
+			remoteInfo = Twitter;
+		};
+		454121820F45312E0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B6F2CE00DA2B7F50052CA40;
+			remoteInfo = Vermilion;
+		};
+		454121840F45313D0088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B6F2CE00DA2B7F50052CA40;
+			remoteInfo = Vermilion;
+		};
+		454124D10F467F910088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45B007B20F39488E00CE0C75 /* Delicious Bookmarks */;
+			remoteInfo = "Delicious Bookmarks";
+		};
+		454124D30F467F950088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 457DD92D0F3FD912009ECE66 /* ExtraFileActions */;
+			remoteInfo = ExtraFileActions;
+		};
+		454124DE0F4680450088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F4EF8F740ECB3EFF008DD6DA /* Build All */;
+			remoteInfo = "Build All";
+		};
+		454124E00F4680570088B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 454124CD0F467F4A0088B900 /* QSB with custom Plugins */;
+			remoteInfo = "QSB with custom Plugins";
+		};
+		457DD9780F3FD99C009ECE66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 457DD92D0F3FD912009ECE66;
+			remoteInfo = ExtraFileActions;
+		};
+		45B007E40F3948E700CE0C75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45B007B20F39488E00CE0C75;
+			remoteInfo = "Delicious Bookmarks";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		454124E60F4680A60088B900 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "${SRCROOT}/external/QSB/QuickSearchBox/QSB/build/${CONFIGURATION}/Quick Search Box.app/Contents/PlugIns/";
+			dstSubfolderSpec = 0;
+			files = (
+				454124E70F4680E20088B900 /* DeliciousBookmarks.hgs in CopyFiles */,
+				454124E80F4680E80088B900 /* ExtraFileActions.hgs in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		45411E130F4528800088B900 /* CHANGELOG */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG; sourceTree = "<group>"; };
+		45411E140F4528800088B900 /* delicious.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = delicious.icns; sourceTree = "<group>"; };
+		45411E150F4528800088B900 /* DeliciousAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliciousAccount.h; sourceTree = "<group>"; };
+		45411E160F4528800088B900 /* DeliciousAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliciousAccount.m; sourceTree = "<group>"; };
+		45411E170F4528800088B900 /* DeliciousBookmarks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DeliciousBookmarks-Info.plist"; sourceTree = "<group>"; };
+		45411E180F4528800088B900 /* DeliciousBookmarksSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliciousBookmarksSource.m; sourceTree = "<group>"; };
+		45411E190F4528800088B900 /* DeliciousClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliciousClient.h; sourceTree = "<group>"; };
+		45411E1A0F4528800088B900 /* DeliciousClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliciousClient.m; sourceTree = "<group>"; };
+		45411E1C0F4528800088B900 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/EditDeliciousAccount.xib; sourceTree = "<group>"; };
+		45411E1E0F4528800088B900 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/SetUpDeliciousAccountView.xib; sourceTree = "<group>"; };
+		45411E1F0F4528800088B900 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		45411E210F4528800088B900 /* CHANGELOG */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG; sourceTree = "<group>"; };
+		45411E220F4528800088B900 /* ExtraFileActions-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ExtraFileActions-Info.plist"; sourceTree = "<group>"; };
+		45411E230F4528800088B900 /* MoveToTrashAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveToTrashAction.m; sourceTree = "<group>"; };
+		454121040F4530FD0088B900 /* QSB.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = QSB.xcodeproj; path = external/QSB/QuickSearchBox/QSB/QSB.xcodeproj; sourceTree = "<group>"; };
+		454124A50F467D3C0088B900 /* HGSBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGSBundle.m; path = external/QSB/Vermilion/Vermilion/HGSBundle.m; sourceTree = "<group>"; };
+		457DD9420F3FD912009ECE66 /* ExtraFileActions.hgs */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExtraFileActions.hgs; sourceTree = BUILT_PRODUCTS_DIR; };
+		457DD9F40F3FE110009ECE66 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		45B007C10F39488F00CE0C75 /* DeliciousBookmarks.hgs */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeliciousBookmarks.hgs; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A2711020ECA567B00C72257 /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
+		629A95630E5F244D005AE855 /* InstantMessage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InstantMessage.framework; path = System/Library/Frameworks/InstantMessage.framework; sourceTree = SDKROOT; };
+		796A438C0976F3B5000659B6 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		7F379C740D8FFD5C00A47C98 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		7F5717900DB7C83F00D95EBD /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		7F5717A80DB7C84F00D95EBD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		7FE603A10D91B4E300336364 /* Calculate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Calculate.framework; path = System/Library/PrivateFrameworks/Calculate.framework; sourceTree = SDKROOT; };
+		8B4D76AA0E3FE97400EFEDD8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8B55DB010E78832300D39CB0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		8BB275AB0D6F81EA008DC1CA /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = /usr/lib/libsqlite3.dylib; sourceTree = "<absolute>"; };
+		8BD83CAE0F1EC46400098475 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		8BE9BEE109C5EF770074EFF3 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		8BE9BF8909C5EF810074EFF3 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = System/Library/Frameworks/QuickTime.framework; sourceTree = SDKROOT; };
+		8BE9BFD109C5EFCE0074EFF3 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		8BEB40F40C34822800AA2572 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		D408F9F00AEEDC2C007EE96D /* SecurityFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityFoundation.framework; path = System/Library/Frameworks/SecurityFoundation.framework; sourceTree = SDKROOT; };
+		D44652CE0AB643110077860B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E429DF760AC1907A00E747D8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F43C9B100AF0EFEC009E5549 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		457DD93A0F3FD912009ECE66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				454124AB0F467D650088B900 /* Vermilion.framework in Frameworks */,
+				457DD9F50F3FE110009ECE66 /* CoreFoundation.framework in Frameworks */,
+				457DDA2D0F3FE737009ECE66 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45B007B90F39488E00CE0C75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				454124940F467CC00088B900 /* Vermilion.framework in Frameworks */,
+				45B007BB0F39488E00CE0C75 /* Security.framework in Frameworks */,
+				45B007BC0F39488E00CE0C75 /* Foundation.framework in Frameworks */,
+				45B008290F394A1100CE0C75 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45B007C10F39488F00CE0C75 /* DeliciousBookmarks.hgs */,
+				457DD9420F3FD912009ECE66 /* ExtraFileActions.hgs */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* GoogleDesktop */ = {
+			isa = PBXGroup;
+			children = (
+				454121040F4530FD0088B900 /* QSB.xcodeproj */,
+				454124A50F467D3C0088B900 /* HGSBundle.m */,
+				45411E110F45287F0088B900 /* Modules */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				D45B92550A3F6E68003A5A05 /* Libraries */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+				457DD9F40F3FE110009ECE66 /* CoreFoundation.framework */,
+			);
+			name = GoogleDesktop;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8BD83CAE0F1EC46400098475 /* Quartz.framework */,
+				5A2711020ECA567B00C72257 /* Python.framework */,
+				7F5717A80DB7C84F00D95EBD /* Cocoa.framework */,
+				7F5717900DB7C83F00D95EBD /* AddressBook.framework */,
+				7F379C740D8FFD5C00A47C98 /* QuickLook.framework */,
+				7FE603A10D91B4E300336364 /* Calculate.framework */,
+				8BEB40F40C34822800AA2572 /* OpenGL.framework */,
+				F43C9B100AF0EFEC009E5549 /* AppKit.framework */,
+				E429DF760AC1907A00E747D8 /* Security.framework */,
+				D408F9F00AEEDC2C007EE96D /* SecurityFoundation.framework */,
+				D44652CE0AB643110077860B /* SystemConfiguration.framework */,
+				8BE9BEE109C5EF770074EFF3 /* Carbon.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+				796A438C0976F3B5000659B6 /* CoreServices.framework */,
+				8BE9BF8909C5EF810074EFF3 /* QuickTime.framework */,
+				8BE9BFD109C5EFCE0074EFF3 /* Quartz.framework */,
+				8B4D76AA0E3FE97400EFEDD8 /* QuartzCore.framework */,
+				629A95630E5F244D005AE855 /* InstantMessage.framework */,
+				8B55DB010E78832300D39CB0 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		45411E110F45287F0088B900 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				45411E120F45287F0088B900 /* DeliciousBookmarks */,
+				45411E200F4528800088B900 /* ExtraFileActions */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		45411E120F45287F0088B900 /* DeliciousBookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				45411E130F4528800088B900 /* CHANGELOG */,
+				45411E140F4528800088B900 /* delicious.icns */,
+				45411E150F4528800088B900 /* DeliciousAccount.h */,
+				45411E160F4528800088B900 /* DeliciousAccount.m */,
+				45411E170F4528800088B900 /* DeliciousBookmarks-Info.plist */,
+				45411E180F4528800088B900 /* DeliciousBookmarksSource.m */,
+				45411E190F4528800088B900 /* DeliciousClient.h */,
+				45411E1A0F4528800088B900 /* DeliciousClient.m */,
+				45411E1B0F4528800088B900 /* EditDeliciousAccount.xib */,
+				45411E1D0F4528800088B900 /* SetUpDeliciousAccountView.xib */,
+				45411E1F0F4528800088B900 /* TODO */,
+			);
+			path = DeliciousBookmarks;
+			sourceTree = "<group>";
+		};
+		45411E200F4528800088B900 /* ExtraFileActions */ = {
+			isa = PBXGroup;
+			children = (
+				45411E210F4528800088B900 /* CHANGELOG */,
+				45411E220F4528800088B900 /* ExtraFileActions-Info.plist */,
+				45411E230F4528800088B900 /* MoveToTrashAction.m */,
+			);
+			path = ExtraFileActions;
+			sourceTree = "<group>";
+		};
+		454121050F4530FD0088B900 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				454121390F4530FE0088B900 /* Quick Search Box.app */,
+				4541213B0F4530FE0088B900 /* GTM.framework */,
+				4541213D0F4530FE0088B900 /* Vermilion.framework */,
+				4541213F0F4530FE0088B900 /* GData.framework */,
+				454121410F4530FE0088B900 /* QSBTest.octest */,
+				454121430F4530FE0088B900 /* VermilionTest.octest */,
+				454121450F4530FE0088B900 /* Actions.hgs */,
+				454121470F4530FE0088B900 /* AppleScriptPlugins.hgs */,
+				454121490F4530FE0088B900 /* Applications.hgs */,
+				4541214B0F4530FE0088B900 /* ApplicationUI.hgs */,
+				4541214D0F4530FE0088B900 /* Calculator.hgs */,
+				4541214F0F4530FE0088B900 /* CaminoBookmarks.hgs */,
+				454121510F4530FE0088B900 /* ChatBuddies.hgs */,
+				454121530F4530FE0088B900 /* Contacts.hgs */,
+				454121550F4530FE0088B900 /* CorePlugin.hgs */,
+				454121570F4530FE0088B900 /* DeveloperDocumentation.hgs */,
+				454121590F4530FE0088B900 /* DirectoryScanner.hgs */,
+				4541215B0F4530FE0088B900 /* EmailURLAction.hgs */,
+				4541215D0F4530FE0088B900 /* GoogleBookmarks.hgs */,
+				4541215F0F4530FE0088B900 /* GoogleCorpora.hgs */,
+				454121610F4530FE0088B900 /* GoogleDocs.hgs */,
+				454121630F4530FE0088B900 /* Images.scptd */,
+				454121650F4530FE0088B900 /* iTunes.hgs */,
+				454121670F4530FE0088B900 /* iTunes.scptd */,
+				454121690F4530FE0088B900 /* Networking.scptd */,
+				4541216B0F4530FE0088B900 /* Picasaweb.hgs */,
+				4541216D0F4530FE0088B900 /* RecentDocuments.hgs */,
+				4541216F0F4530FE0088B900 /* SafariBookmarks.hgs */,
+				454121710F4530FE0088B900 /* SharedFileList.hgs */,
+				454121730F4530FE0088B900 /* Shortcuts.hgs */,
+				454121750F4530FE0088B900 /* SpotlightFiles.hgs */,
+				454121770F4530FE0088B900 /* System.scptd */,
+				454121790F4530FE0088B900 /* Terminal.hgs */,
+				4541217B0F4530FE0088B900 /* Volume.scptd */,
+				4541217D0F4530FE0088B900 /* Weather.hgs */,
+				4541217F0F4530FE0088B900 /* GoogleAccounts.hgs */,
+				454121810F4530FE0088B900 /* Twitter.hgs */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D45B92550A3F6E68003A5A05 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				8BB275AB0D6F81EA008DC1CA /* libsqlite3.dylib */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		457DD92D0F3FD912009ECE66 /* ExtraFileActions */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 457DD93F0F3FD912009ECE66 /* Build configuration list for PBXNativeTarget "ExtraFileActions" */;
+			buildPhases = (
+				457DD9300F3FD912009ECE66 /* Resources */,
+				457DD9340F3FD912009ECE66 /* Sources */,
+				457DD93A0F3FD912009ECE66 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				454121850F45313D0088B900 /* PBXTargetDependency */,
+			);
+			name = ExtraFileActions;
+			productName = Files;
+			productReference = 457DD9420F3FD912009ECE66 /* ExtraFileActions.hgs */;
+			productType = "com.apple.product-type.bundle";
+		};
+		45B007B20F39488E00CE0C75 /* Delicious Bookmarks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45B007BE0F39488E00CE0C75 /* Build configuration list for PBXNativeTarget "Delicious Bookmarks" */;
+			buildPhases = (
+				45B007B50F39488E00CE0C75 /* Resources */,
+				45B007B60F39488E00CE0C75 /* Sources */,
+				45B007B90F39488E00CE0C75 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				454121830F45312E0088B900 /* PBXTargetDependency */,
+			);
+			name = "Delicious Bookmarks";
+			productName = GoogleBookmarks;
+			productReference = 45B007C10F39488F00CE0C75 /* DeliciousBookmarks.hgs */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = NO;
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "qsb-plugins" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+				fr,
+				ko,
+				de,
+				zh_CN,
+				it,
+				es,
+				ja,
+				fr_FR,
+				de_DE,
+				en_GB,
+				nl,
+				zh_TW,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* GoogleDesktop */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 454121050F4530FD0088B900 /* Products */;
+					ProjectRef = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				F4EF8F740ECB3EFF008DD6DA /* Build All */,
+				795F071909870215004C6BFE /* Test All */,
+				454124CD0F467F4A0088B900 /* QSB with custom Plugins */,
+				45B007B20F39488E00CE0C75 /* Delicious Bookmarks */,
+				457DD92D0F3FD912009ECE66 /* ExtraFileActions */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		454121390F4530FE0088B900 /* Quick Search Box.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Quick Search Box.app";
+			remoteRef = 454121380F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4541213B0F4530FE0088B900 /* GTM.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GTM.framework;
+			remoteRef = 4541213A0F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4541213D0F4530FE0088B900 /* Vermilion.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Vermilion.framework;
+			remoteRef = 4541213C0F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4541213F0F4530FE0088B900 /* GData.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GData.framework;
+			remoteRef = 4541213E0F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121410F4530FE0088B900 /* QSBTest.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = QSBTest.octest;
+			remoteRef = 454121400F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121430F4530FE0088B900 /* VermilionTest.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = VermilionTest.octest;
+			remoteRef = 454121420F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121450F4530FE0088B900 /* Actions.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Actions.hgs;
+			remoteRef = 454121440F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121470F4530FE0088B900 /* AppleScriptPlugins.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AppleScriptPlugins.hgs;
+			remoteRef = 454121460F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121490F4530FE0088B900 /* Applications.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Applications.hgs;
+			remoteRef = 454121480F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4541214B0F4530FE0088B900 /* ApplicationUI.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ApplicationUI.hgs;
+			remoteRef = 4541214A0F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4541214D0F4530FE0088B900 /* Calculator.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Calculator.hgs;
+			remoteRef = 4541214C0F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4541214F0F4530FE0088B900 /* CaminoBookmarks.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CaminoBookmarks.hgs;
+			remoteRef = 4541214E0F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121510F4530FE0088B900 /* ChatBuddies.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChatBuddies.hgs;
+			remoteRef = 454121500F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121530F4530FE0088B900 /* Contacts.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Contacts.hgs;
+			remoteRef = 454121520F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121550F4530FE0088B900 /* CorePlugin.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CorePlugin.hgs;
+			remoteRef = 454121540F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121570F4530FE0088B900 /* DeveloperDocumentation.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DeveloperDocumentation.hgs;
+			remoteRef = 454121560F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121590F4530FE0088B900 /* DirectoryScanner.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DirectoryScanner.hgs;
+			remoteRef = 454121580F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4541215B0F4530FE0088B900 /* EmailURLAction.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = EmailURLAction.hgs;
+			remoteRef = 4541215A0F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4541215D0F4530FE0088B900 /* GoogleBookmarks.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GoogleBookmarks.hgs;
+			remoteRef = 4541215C0F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4541215F0F4530FE0088B900 /* GoogleCorpora.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GoogleCorpora.hgs;
+			remoteRef = 4541215E0F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121610F4530FE0088B900 /* GoogleDocs.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GoogleDocs.hgs;
+			remoteRef = 454121600F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121630F4530FE0088B900 /* Images.scptd */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Images.scptd;
+			remoteRef = 454121620F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121650F4530FE0088B900 /* iTunes.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = iTunes.hgs;
+			remoteRef = 454121640F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121670F4530FE0088B900 /* iTunes.scptd */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = iTunes.scptd;
+			remoteRef = 454121660F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121690F4530FE0088B900 /* Networking.scptd */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Networking.scptd;
+			remoteRef = 454121680F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4541216B0F4530FE0088B900 /* Picasaweb.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Picasaweb.hgs;
+			remoteRef = 4541216A0F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4541216D0F4530FE0088B900 /* RecentDocuments.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RecentDocuments.hgs;
+			remoteRef = 4541216C0F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4541216F0F4530FE0088B900 /* SafariBookmarks.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SafariBookmarks.hgs;
+			remoteRef = 4541216E0F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121710F4530FE0088B900 /* SharedFileList.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SharedFileList.hgs;
+			remoteRef = 454121700F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121730F4530FE0088B900 /* Shortcuts.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Shortcuts.hgs;
+			remoteRef = 454121720F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121750F4530FE0088B900 /* SpotlightFiles.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SpotlightFiles.hgs;
+			remoteRef = 454121740F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121770F4530FE0088B900 /* System.scptd */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = System.scptd;
+			remoteRef = 454121760F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121790F4530FE0088B900 /* Terminal.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Terminal.hgs;
+			remoteRef = 454121780F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4541217B0F4530FE0088B900 /* Volume.scptd */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Volume.scptd;
+			remoteRef = 4541217A0F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4541217D0F4530FE0088B900 /* Weather.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Weather.hgs;
+			remoteRef = 4541217C0F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4541217F0F4530FE0088B900 /* GoogleAccounts.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GoogleAccounts.hgs;
+			remoteRef = 4541217E0F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		454121810F4530FE0088B900 /* Twitter.hgs */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Twitter.hgs;
+			remoteRef = 454121800F4530FE0088B900 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		457DD9300F3FD912009ECE66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45B007B50F39488E00CE0C75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4541218A0F45318D0088B900 /* SetUpDeliciousAccountView.xib in Resources */,
+				4541218B0F45318D0088B900 /* EditDeliciousAccount.xib in Resources */,
+				454121890F4531820088B900 /* delicious.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		457DD9340F3FD912009ECE66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4541218C0F4531A60088B900 /* MoveToTrashAction.m in Sources */,
+				454124A70F467D3C0088B900 /* HGSBundle.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45B007B60F39488E00CE0C75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				454121860F4531710088B900 /* DeliciousAccount.m in Sources */,
+				454121870F4531710088B900 /* DeliciousClient.m in Sources */,
+				454121880F4531710088B900 /* DeliciousBookmarksSource.m in Sources */,
+				454124A60F467D3C0088B900 /* HGSBundle.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		454121830F45312E0088B900 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Vermilion;
+			targetProxy = 454121820F45312E0088B900 /* PBXContainerItemProxy */;
+		};
+		454121850F45313D0088B900 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Vermilion;
+			targetProxy = 454121840F45313D0088B900 /* PBXContainerItemProxy */;
+		};
+		454124D20F467F910088B900 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45B007B20F39488E00CE0C75 /* Delicious Bookmarks */;
+			targetProxy = 454124D10F467F910088B900 /* PBXContainerItemProxy */;
+		};
+		454124D40F467F950088B900 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 457DD92D0F3FD912009ECE66 /* ExtraFileActions */;
+			targetProxy = 454124D30F467F950088B900 /* PBXContainerItemProxy */;
+		};
+		454124DF0F4680450088B900 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Build All";
+			targetProxy = 454124DE0F4680450088B900 /* PBXContainerItemProxy */;
+		};
+		454124E10F4680570088B900 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 454124CD0F467F4A0088B900 /* QSB with custom Plugins */;
+			targetProxy = 454124E00F4680570088B900 /* PBXContainerItemProxy */;
+		};
+		457DD9790F3FD99C009ECE66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 457DD92D0F3FD912009ECE66 /* ExtraFileActions */;
+			targetProxy = 457DD9780F3FD99C009ECE66 /* PBXContainerItemProxy */;
+		};
+		45B007E50F3948E700CE0C75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45B007B20F39488E00CE0C75 /* Delicious Bookmarks */;
+			targetProxy = 45B007E40F3948E700CE0C75 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		45411E1B0F4528800088B900 /* EditDeliciousAccount.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45411E1C0F4528800088B900 /* English */,
+			);
+			name = EditDeliciousAccount.xib;
+			sourceTree = "<group>";
+		};
+		45411E1D0F4528800088B900 /* SetUpDeliciousAccountView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45411E1E0F4528800088B900 /* English */,
+			);
+			name = SetUpDeliciousAccountView.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		454124CE0F467F4A0088B900 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "QSB with custom Plugins";
+			};
+			name = Debug;
+		};
+		454124CF0F467F4A0088B900 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "QSB with custom Plugins";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		457DD9400F3FD912009ECE66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "$(SRCROOT)/Modules/ExtraFileActions/ExtraFileActions-Info.plist";
+				PRODUCT_NAME = ExtraFileActions;
+				WRAPPER_EXTENSION = hgs;
+			};
+			name = Debug;
+		};
+		457DD9410F3FD912009ECE66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "$(SRCROOT)/Modules/ExtraFileActions/ExtraFileActions-Info.plist";
+				PRODUCT_NAME = ExtraFileActions;
+				WRAPPER_EXTENSION = hgs;
+			};
+			name = Release;
+		};
+		45B007BF0F39488E00CE0C75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "$(SRCROOT)/Modules/DeliciousBookmarks/DeliciousBookmarks-Info.plist";
+				PRODUCT_NAME = DeliciousBookmarks;
+				WRAPPER_EXTENSION = hgs;
+			};
+			name = Debug;
+		};
+		45B007C00F39488E00CE0C75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "$(SRCROOT)/Modules/DeliciousBookmarks/DeliciousBookmarks-Info.plist";
+				PRODUCT_NAME = DeliciousBookmarks;
+				WRAPPER_EXTENSION = hgs;
+			};
+			name = Release;
+		};
+		795F072709870248004C6BFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "Test All";
+			};
+			name = Debug;
+		};
+		795F072809870248004C6BFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "Test All";
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/external/QSB/QuickSearchBox/QSB/build/${CONFIGURATION}";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/external/QSB/QuickSearchBox/QSB/build/${CONFIGURATION}/GTM.framework/Headers";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/external/QSB/QuickSearchBox/QSB/build/${CONFIGURATION}";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/external/QSB/QuickSearchBox/QSB/build/${CONFIGURATION}/GTM.framework/Headers";
+			};
+			name = Release;
+		};
+		F4EF8F750ECB3F01008DD6DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "Add Plugins To QSB";
+			};
+			name = Debug;
+		};
+		F4EF8F760ECB3F01008DD6DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "Add Plugins To QSB";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		454124D00F467F850088B900 /* Build configuration list for PBXAggregateTarget "QSB with custom Plugins" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				454124CE0F467F4A0088B900 /* Debug */,
+				454124CF0F467F4A0088B900 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		457DD93F0F3FD912009ECE66 /* Build configuration list for PBXNativeTarget "ExtraFileActions" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				457DD9400F3FD912009ECE66 /* Debug */,
+				457DD9410F3FD912009ECE66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45B007BE0F39488E00CE0C75 /* Build configuration list for PBXNativeTarget "Delicious Bookmarks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45B007BF0F39488E00CE0C75 /* Debug */,
+				45B007C00F39488E00CE0C75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		795F072609870248004C6BFE /* Build configuration list for PBXAggregateTarget "Test All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				795F072709870248004C6BFE /* Debug */,
+				795F072809870248004C6BFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "qsb-plugins" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4EF8F770ECB3F50008DD6DA /* Build configuration list for PBXAggregateTarget "Build All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4EF8F750ECB3F01008DD6DA /* Debug */,
+				F4EF8F760ECB3F01008DD6DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

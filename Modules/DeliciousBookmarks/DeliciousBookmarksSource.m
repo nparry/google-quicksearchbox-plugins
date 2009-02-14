@@ -1,5 +1,5 @@
 #import <Vermilion/Vermilion.h>
-#import "KeychainItem.h"
+#import <Vermilion/KeychainItem.h>
 #import "DeliciousClient.h"
 
 static NSString *const kObjectAttributeDeliciousTags 

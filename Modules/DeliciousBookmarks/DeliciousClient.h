@@ -1,3 +1,5 @@
+#import <Foundation/Foundation.h>
+
 @interface DeliciousBookmark : NSObject {
 	NSString *name;
 	NSString *url;

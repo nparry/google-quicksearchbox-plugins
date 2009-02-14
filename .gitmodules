@@ -1,0 +1,3 @@
+[submodule "external/QSB"]
+	path = external/QSB
+	url = git://github.com/tycho/qsb-mac.git
