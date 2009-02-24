@@ -14,12 +14,24 @@
 				454124E60F4680A60088B900 /* CopyFiles */,
 			);
 			dependencies = (
-				454124D40F467F950088B900 /* PBXTargetDependency */,
-				454124D20F467F910088B900 /* PBXTargetDependency */,
+				455732F90F537BAC00164A71 /* PBXTargetDependency */,
 				454124DF0F4680450088B900 /* PBXTargetDependency */,
 			);
 			name = "QSB with custom Plugins";
 			productName = "QSB with custom Plugins";
+		};
+		455732F40F537B6C00164A71 /* Custom plugins */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 455732F70F537B9200164A71 /* Build configuration list for PBXAggregateTarget "Custom plugins" */;
+			buildPhases = (
+			);
+			dependencies = (
+				455732FF0F537BB900164A71 /* PBXTargetDependency */,
+				455732FD0F537BB900164A71 /* PBXTargetDependency */,
+				455732FB0F537BB900164A71 /* PBXTargetDependency */,
+			);
+			name = "Custom plugins";
+			productName = "Custom plugins";
 		};
 		795F071909870215004C6BFE /* Test All */ = {
 			isa = PBXAggregateTarget;
@@ -37,8 +49,6 @@
 			buildPhases = (
 			);
 			dependencies = (
-				45B007E50F3948E700CE0C75 /* PBXTargetDependency */,
-				457DD9790F3FD99C009ECE66 /* PBXTargetDependency */,
 				454124E10F4680570088B900 /* PBXTargetDependency */,
 			);
 			name = "Build All";
@@ -60,11 +70,17 @@
 		454124AB0F467D650088B900 /* Vermilion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4541213D0F4530FE0088B900 /* Vermilion.framework */; };
 		454124E70F4680E20088B900 /* DeliciousBookmarks.hgs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45B007C10F39488F00CE0C75 /* DeliciousBookmarks.hgs */; };
 		454124E80F4680E80088B900 /* ExtraFileActions.hgs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457DD9420F3FD912009ECE66 /* ExtraFileActions.hgs */; };
+		455732CE0F537AEA00164A71 /* HGSBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 454124A50F467D3C0088B900 /* HGSBundle.m */; };
+		455732D00F537AEA00164A71 /* Vermilion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4541213D0F4530FE0088B900 /* Vermilion.framework */; };
+		455732D20F537AEA00164A71 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5717A80DB7C84F00D95EBD /* Cocoa.framework */; };
+		455733070F537BE500164A71 /* Rot13Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 455733050F537BE500164A71 /* Rot13Action.m */; };
+		4557330C0F537C2800164A71 /* Rot13.hgs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4557330B0F537C2800164A71 /* Rot13.hgs */; };
 		457DD9F50F3FE110009ECE66 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457DD9F40F3FE110009ECE66 /* CoreFoundation.framework */; };
 		457DDA2D0F3FE737009ECE66 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5717A80DB7C84F00D95EBD /* Cocoa.framework */; };
 		45B007BB0F39488E00CE0C75 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E429DF760AC1907A00E747D8 /* Security.framework */; };
 		45B007BC0F39488E00CE0C75 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
 		45B008290F394A1100CE0C75 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5717A80DB7C84F00D95EBD /* Cocoa.framework */; };
+		45DAE6F30F537F370091E5A7 /* GTM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4541213B0F4530FE0088B900 /* GTM.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -341,47 +357,61 @@
 			remoteGlobalIDString = 8B6F2CE00DA2B7F50052CA40;
 			remoteInfo = Vermilion;
 		};
-		454124D10F467F910088B900 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 45B007B20F39488E00CE0C75 /* Delicious Bookmarks */;
-			remoteInfo = "Delicious Bookmarks";
-		};
-		454124D30F467F950088B900 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 457DD92D0F3FD912009ECE66 /* ExtraFileActions */;
-			remoteInfo = ExtraFileActions;
-		};
 		454124DE0F4680450088B900 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = F4EF8F740ECB3EFF008DD6DA /* Build All */;
+			remoteGlobalIDString = F4EF8F740ECB3EFF008DD6DA;
 			remoteInfo = "Build All";
 		};
 		454124E00F4680570088B900 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 454124CD0F467F4A0088B900 /* QSB with custom Plugins */;
+			remoteGlobalIDString = 454124CD0F467F4A0088B900;
 			remoteInfo = "QSB with custom Plugins";
 		};
-		457DD9780F3FD99C009ECE66 /* PBXContainerItemProxy */ = {
+		455732CA0F537AEA00164A71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B6F2CE00DA2B7F50052CA40;
+			remoteInfo = Vermilion;
+		};
+		455732F80F537BAC00164A71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 455732F40F537B6C00164A71;
+			remoteInfo = "Custom plugins";
+		};
+		455732FA0F537BB900164A71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 455732C80F537AEA00164A71;
+			remoteInfo = Rot13;
+		};
+		455732FC0F537BB900164A71 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 457DD92D0F3FD912009ECE66;
 			remoteInfo = ExtraFileActions;
 		};
-		45B007E40F3948E700CE0C75 /* PBXContainerItemProxy */ = {
+		455732FE0F537BB900164A71 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 45B007B20F39488E00CE0C75;
 			remoteInfo = "Delicious Bookmarks";
+		};
+		45DAE77C0F537FB20091E5A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BD97D090E636D8C00F5C83B /* GTM */;
+			remoteInfo = GTM;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -394,6 +424,7 @@
 			files = (
 				454124E70F4680E20088B900 /* DeliciousBookmarks.hgs in CopyFiles */,
 				454124E80F4680E80088B900 /* ExtraFileActions.hgs in CopyFiles */,
+				4557330C0F537C2800164A71 /* Rot13.hgs in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +448,9 @@
 		45411E230F4528800088B900 /* MoveToTrashAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveToTrashAction.m; sourceTree = "<group>"; };
 		454121040F4530FD0088B900 /* QSB.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = QSB.xcodeproj; path = external/QSB/QuickSearchBox/QSB/QSB.xcodeproj; sourceTree = "<group>"; };
 		454124A50F467D3C0088B900 /* HGSBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGSBundle.m; path = external/QSB/Vermilion/Vermilion/HGSBundle.m; sourceTree = "<group>"; };
+		455733040F537BE500164A71 /* Rot13-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Rot13-Info.plist"; path = "Rot13/Rot13-Info.plist"; sourceTree = "<group>"; };
+		455733050F537BE500164A71 /* Rot13Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Rot13Action.m; path = Rot13/Rot13Action.m; sourceTree = "<group>"; };
+		4557330B0F537C2800164A71 /* Rot13.hgs */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Rot13.hgs; sourceTree = BUILT_PRODUCTS_DIR; };
 		457DD9420F3FD912009ECE66 /* ExtraFileActions.hgs */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExtraFileActions.hgs; sourceTree = BUILT_PRODUCTS_DIR; };
 		457DD9F40F3FE110009ECE66 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		45B007C10F39488F00CE0C75 /* DeliciousBookmarks.hgs */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeliciousBookmarks.hgs; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -442,6 +476,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		455732CF0F537AEA00164A71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45DAE6F30F537F370091E5A7 /* GTM.framework in Frameworks */,
+				455732D00F537AEA00164A71 /* Vermilion.framework in Frameworks */,
+				455732D20F537AEA00164A71 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		457DD93A0F3FD912009ECE66 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -471,6 +515,7 @@
 			children = (
 				45B007C10F39488F00CE0C75 /* DeliciousBookmarks.hgs */,
 				457DD9420F3FD912009ECE66 /* ExtraFileActions.hgs */,
+				4557330B0F537C2800164A71 /* Rot13.hgs */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -518,6 +563,7 @@
 		45411E110F45287F0088B900 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4557330A0F537BEE00164A71 /* Rot13 */,
 				45411E120F45287F0088B900 /* DeliciousBookmarks */,
 				45411E200F4528800088B900 /* ExtraFileActions */,
 			);
@@ -596,6 +642,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		4557330A0F537BEE00164A71 /* Rot13 */ = {
+			isa = PBXGroup;
+			children = (
+				455733040F537BE500164A71 /* Rot13-Info.plist */,
+				455733050F537BE500164A71 /* Rot13Action.m */,
+			);
+			name = Rot13;
+			sourceTree = "<group>";
+		};
 		D45B92550A3F6E68003A5A05 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -607,6 +662,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		455732C80F537AEA00164A71 /* Rot13 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 455732D30F537AEA00164A71 /* Build configuration list for PBXNativeTarget "Rot13" */;
+			buildPhases = (
+				455732CB0F537AEA00164A71 /* Resources */,
+				455732CC0F537AEA00164A71 /* Sources */,
+				455732CF0F537AEA00164A71 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				455732C90F537AEA00164A71 /* PBXTargetDependency */,
+				45DAE77D0F537FB20091E5A7 /* PBXTargetDependency */,
+			);
+			name = Rot13;
+			productName = Files;
+			productReference = 4557330B0F537C2800164A71 /* Rot13.hgs */;
+			productType = "com.apple.product-type.bundle";
+		};
 		457DD92D0F3FD912009ECE66 /* ExtraFileActions */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 457DD93F0F3FD912009ECE66 /* Build configuration list for PBXNativeTarget "ExtraFileActions" */;
@@ -685,9 +759,11 @@
 			targets = (
 				F4EF8F740ECB3EFF008DD6DA /* Build All */,
 				795F071909870215004C6BFE /* Test All */,
+				455732F40F537B6C00164A71 /* Custom plugins */,
 				454124CD0F467F4A0088B900 /* QSB with custom Plugins */,
 				45B007B20F39488E00CE0C75 /* Delicious Bookmarks */,
 				457DD92D0F3FD912009ECE66 /* ExtraFileActions */,
+				455732C80F537AEA00164A71 /* Rot13 */,
 			);
 		};
 /* End PBXProject section */
@@ -955,6 +1031,13 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		455732CB0F537AEA00164A71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		457DD9300F3FD912009ECE66 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -975,6 +1058,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		455732CC0F537AEA00164A71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				455732CE0F537AEA00164A71 /* HGSBundle.m in Sources */,
+				455733070F537BE500164A71 /* Rot13Action.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		457DD9340F3FD912009ECE66 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1008,16 +1100,6 @@
 			name = Vermilion;
 			targetProxy = 454121840F45313D0088B900 /* PBXContainerItemProxy */;
 		};
-		454124D20F467F910088B900 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 45B007B20F39488E00CE0C75 /* Delicious Bookmarks */;
-			targetProxy = 454124D10F467F910088B900 /* PBXContainerItemProxy */;
-		};
-		454124D40F467F950088B900 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 457DD92D0F3FD912009ECE66 /* ExtraFileActions */;
-			targetProxy = 454124D30F467F950088B900 /* PBXContainerItemProxy */;
-		};
 		454124DF0F4680450088B900 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Build All";
@@ -1028,15 +1110,35 @@
 			target = 454124CD0F467F4A0088B900 /* QSB with custom Plugins */;
 			targetProxy = 454124E00F4680570088B900 /* PBXContainerItemProxy */;
 		};
-		457DD9790F3FD99C009ECE66 /* PBXTargetDependency */ = {
+		455732C90F537AEA00164A71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Vermilion;
+			targetProxy = 455732CA0F537AEA00164A71 /* PBXContainerItemProxy */;
+		};
+		455732F90F537BAC00164A71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 455732F40F537B6C00164A71 /* Custom plugins */;
+			targetProxy = 455732F80F537BAC00164A71 /* PBXContainerItemProxy */;
+		};
+		455732FB0F537BB900164A71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 455732C80F537AEA00164A71 /* Rot13 */;
+			targetProxy = 455732FA0F537BB900164A71 /* PBXContainerItemProxy */;
+		};
+		455732FD0F537BB900164A71 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 457DD92D0F3FD912009ECE66 /* ExtraFileActions */;
-			targetProxy = 457DD9780F3FD99C009ECE66 /* PBXContainerItemProxy */;
+			targetProxy = 455732FC0F537BB900164A71 /* PBXContainerItemProxy */;
 		};
-		45B007E50F3948E700CE0C75 /* PBXTargetDependency */ = {
+		455732FF0F537BB900164A71 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 45B007B20F39488E00CE0C75 /* Delicious Bookmarks */;
-			targetProxy = 45B007E40F3948E700CE0C75 /* PBXContainerItemProxy */;
+			targetProxy = 455732FE0F537BB900164A71 /* PBXContainerItemProxy */;
+		};
+		45DAE77D0F537FB20091E5A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GTM;
+			targetProxy = 45DAE77C0F537FB20091E5A7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1077,6 +1179,45 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PRODUCT_NAME = "QSB with custom Plugins";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		455732D40F537AEA00164A71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "$(SRCROOT)/Modules/Rot13/Rot13-Info.plist";
+				PRODUCT_NAME = Rot13;
+				WRAPPER_EXTENSION = hgs;
+			};
+			name = Debug;
+		};
+		455732D50F537AEA00164A71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "$(SRCROOT)/Modules/Rot13/Rot13-Info.plist";
+				PRODUCT_NAME = Rot13;
+				WRAPPER_EXTENSION = hgs;
+			};
+			name = Release;
+		};
+		455732F50F537B6C00164A71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Custom plugins";
+			};
+			name = Debug;
+		};
+		455732F60F537B6C00164A71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Custom plugins";
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1171,6 +1312,24 @@
 			buildConfigurations = (
 				454124CE0F467F4A0088B900 /* Debug */,
 				454124CF0F467F4A0088B900 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		455732D30F537AEA00164A71 /* Build configuration list for PBXNativeTarget "Rot13" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				455732D40F537AEA00164A71 /* Debug */,
+				455732D50F537AEA00164A71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		455732F70F537B9200164A71 /* Build configuration list for PBXAggregateTarget "Custom plugins" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				455732F50F537B6C00164A71 /* Debug */,
+				455732F60F537B6C00164A71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
