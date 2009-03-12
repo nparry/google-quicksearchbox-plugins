@@ -1,6 +1,16 @@
 #import <Vermilion/Vermilion.h>
 #import <CoreServices/CoreServices.h>
 
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//
+// QSB now ships with a built-in action to do this, so this
+// class is deprecated.  I have left it around for reference,
+// but it is removed from the XCode project for these plugins.
+//
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 // An action that will delete a file.
 //
 @interface MoveToTrashAction : HGSAction
@@ -24,12 +34,15 @@
 }
 
 - (BOOL)performActionWithInfo:(NSDictionary*)info {
-  HGSObject *object = [info valueForKey:kHGSActionPrimaryObjectKey];
-  BOOL success = NO;
-  if (object) {
-    NSURL *url = [object identifier];
-	HGSLogDebug(@"Trying to trash: '%@'", url);
-    success = [self moveToTrash:url];
+  HGSResultArray *objects = [info valueForKey:kHGSActionDirectObjectsKey];
+  BOOL success = YES;
+  if (objects) {
+	  NSArray *urls = [objects urls];
+	  for (NSURL *url in urls) {
+		  HGSLogDebug(@"Trying to trash: '%@'", url);
+		  BOOL singleSuccess = [self moveToTrash:url];
+		  success = success && singleSuccess;
+	  }
   }
   return success;
 }

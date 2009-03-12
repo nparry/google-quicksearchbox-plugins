@@ -18,6 +18,8 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+	<key>HGSPluginAPIVersion</key>
+	<string>${VERMILLION_PLUGIN_API_VERSION}</string>
 	<key>HGSExtensions</key>
 	<array>
 		<dict>
@@ -45,7 +47,7 @@
 			<string>webpage.delicioustag</string>
 			<key>HGSExtensionDesiredAccountType</key>
 			<string>Delicious</string>
-			<key>HGSIsEnabledByDefault</key>
+			<key>HGSExtensionIsEnabledByDefault</key>
 			<true/>
 		</dict>
 	</array>

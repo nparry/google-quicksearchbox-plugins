@@ -10,11 +10,11 @@ static const int kFontSize = 16;
 
 @implementation Rot13Action
 
-- (BOOL)performActionWithInfo:(NSDictionary*)info {
-	HGSObject *object = [info objectForKey:kHGSActionPrimaryObjectKey];
+- (BOOL)performWithInfo:(NSDictionary*)info {
+	HGSResultArray *directObjects = [info objectForKey:kHGSActionDirectObjectsKey];
 	BOOL success = NO;
-	if (object) {
-		NSString *text = [object displayName];
+	if (directObjects) {
+		NSString *text = [directObjects displayName];
 		size_t length = [text length];
 		
 		unichar *buffer = malloc(length*sizeof(unichar));

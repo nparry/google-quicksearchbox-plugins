@@ -18,6 +18,8 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+	<key>HGSPluginAPIVersion</key>
+	<string>${VERMILLION_PLUGIN_API_VERSION}</string>
 	<key>HGSExtensions</key>
 	<array>
 		<dict>
@@ -31,7 +33,7 @@
 			<string>file</string>
 			<key>HGSExtensionIdentifier</key>
 			<string>com.google.text.action.movetotrash</string>
-			<key>HGSIsEnabledByDefault</key>
+			<key>HGSExtensionIsEnabledByDefault</key>
 			<true/>
 		</dict>
 	</array>
