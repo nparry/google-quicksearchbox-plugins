@@ -4,6 +4,7 @@ v0.3
 Pre-built: http://nparry.com/software/google-quicksearchbox-plugins/delicious/Google-QSB-Delicious-v0.3.zip
 * Update to work with QSB Vanadium release
 * Validate Delicious account info when first entered
+* Make the URL icon show up for bookmarks
 
 v0.2
 Pre-built: http://nparry.com/software/google-quicksearchbox-plugins/delicious/Google-QSB-Delicious-v0.2.zip

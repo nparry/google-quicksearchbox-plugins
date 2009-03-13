@@ -186,7 +186,7 @@ static const NSTimeInterval kErrorReportingInterval = 3600.0;  // 1 hour
 						 title:name
 						  type:HGS_SUBTYPE(kHGSTypeWebBookmark, @"deliciousbookmarks")
 						  tags:tags
-						  icon:nil];
+						  icon:[NSImage imageNamed:@"blue-nav"]];
 	}
 	
 	NSString *username = [[KeychainItem keychainItemForService:[account_ identifier]
