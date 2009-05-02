@@ -9,7 +9,7 @@
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.google.qsb.module.Rot13</string>
+	<string>com.google.qsb.plugin.Rot13</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>

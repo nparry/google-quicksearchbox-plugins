@@ -330,7 +330,7 @@ didReceiveResponse:(NSURLResponse *)response {
 #pragma mark Authentication & Refresh
 
 - (void)loginCredentialsChanged:(NSNotification *)notification {
-	id <HGSAccount> account = [notification object];
+	HGSAccount* account = [notification object];
 	HGSAssert(account == account_, @"Notification from bad account!");
 	// Make sure we aren't in the middle of waiting for results; if we are, try
 	// again later instead of changing things in the middle of the fetch.
@@ -387,7 +387,7 @@ didReceiveResponse:(NSURLResponse *)response {
 #pragma mark -
 #pragma mark HGSAccountClientProtocol Methods
 
-- (BOOL)accountWillBeRemoved:(id<HGSAccount>)account {
+- (BOOL)accountWillBeRemoved:(HGSAccount*)account {
 	HGSAssert(account == account_, @"Notification from bad account!");
 	return YES;
 }

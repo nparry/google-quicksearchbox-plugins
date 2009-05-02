@@ -9,7 +9,7 @@
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.google.qsb.module.deliciousbookmarks</string>
+	<string>com.google.qsb.plugin.DeliciousBookmarks</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -24,29 +24,39 @@
 	<array>
 		<dict>
 			<key>HGSExtensionClass</key>
-			<string>DeliciousAccount</string>
+			<string>HGSAccountType</string>
 			<key>HGSExtensionIdentifier</key>
-			<string>com.google.qsb.deliciousbookmarks.account</string>
+			<string>com.google.qsb.delicious.account</string>
 			<key>HGSExtensionUserVisibleName</key>
-			<string>Delicious Accounts</string>
-			<key>HGSExtensionPoint</key>
-			<string>HGSAccountsExtensionPoint</string>
-			<key>HGSExtensionOfferedAccountType</key>
 			<string>Delicious</string>
+			<key>HGSExtensionPoint</key>
+			<string>HGSAccountTypesExtensionPoint</string>
+			<key>HGSExtensionOfferDeliciousedAccountType</key>
+			<string>com.google.qsb.delicious.account</string>
+			<key>HGSExtensionOfferedAccountClass</key>
+			<string>DeliciousAccount</string>
+			<key>QSBSetUpAccountViewNibName</key>
+			<string>SetUpDeliciousAccountView</string>
+			<key>QSBSetUpAccountViewControllerClassName</key>
+			<string>SetUpDeliciousAccountViewController</string>
+			<key>QSBEditAccountWindowNibName</key>
+			<string>EditDeliciousAccount</string>
+			<key>QSBEditAccountWindowControllerClassName</key>
+			<string>EditDeliciousAccountWindowController</string>
 		</dict>
 		<dict>
 			<key>HGSExtensionClass</key>
 			<string>DeliciousBookmarksSource</string>
-			<key>HGSExtensionIdentifier</key>
-			<string>com.google.qsb.deliciousbookmarks.source</string>
 			<key>HGSExtensionPoint</key>
 			<string>HGSSourcesExtensionPoint</string>
 			<key>HGSExtensionUserVisibleName</key>
 			<string>Delicious Bookmarks</string>
 			<key>HGSSearchSourcePivotableTypes</key>
 			<string>webpage.delicioustag</string>
+			<key>HGSExtensionIdentifier</key>
+			<string>com.google.qsb.delicious.source</string>
 			<key>HGSExtensionDesiredAccountType</key>
-			<string>Delicious</string>
+			<string>com.google.qsb.delicious.account</string>
 			<key>HGSExtensionIsEnabledByDefault</key>
 			<true/>
 		</dict>

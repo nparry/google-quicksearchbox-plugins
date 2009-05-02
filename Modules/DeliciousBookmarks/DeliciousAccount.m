@@ -4,10 +4,8 @@
 #import "HGSLog.h"
 #import "GTMBase64.h"
 
-static NSString *const kSetUpDeliciousAccountViewNibName
-  = @"SetUpDeliciousAccountView";
 static NSString *const kDeliciousURLString = @"http://delicious.com/";
-static NSString *const kDeliciousAccountTypeName = @"Delicious";
+static NSString *const kDeliciousAccountTypeName = @"com.google.qsb.delicious.account";
 
 @interface DeliciousAccount ()
 
@@ -18,51 +16,8 @@ static NSString *const kDeliciousAccountTypeName = @"Delicious";
 
 @implementation DeliciousAccount
 
-+ (NSString *)accountType {
++ (NSString *)type {
   return kDeliciousAccountTypeName;
-}
-
-+ (NSView *)setupViewToInstallWithParentWindow:(NSWindow *)parentWindow {
-	static HGSSetUpSimpleAccountViewController *sSetUpDeliciousAccountViewController = nil;
-	if (!sSetUpDeliciousAccountViewController) {
-		NSBundle *ourBundle = HGSGetPluginBundle();
-		HGSSetUpSimpleAccountViewController *loadedViewController
-		= [[[SetUpDeliciousAccountViewController alloc]
-			initWithNibName:kSetUpDeliciousAccountViewNibName bundle:ourBundle]
-		   autorelease];
-		if (loadedViewController) {
-			[loadedViewController loadView];
-			sSetUpDeliciousAccountViewController = [loadedViewController retain];
-		} else {
-			HGSLog(@"Failed to load nib '%@'.", kSetUpDeliciousAccountViewNibName);
-		}
-	}
-	[sSetUpDeliciousAccountViewController setParentWindow:parentWindow];
-	return [sSetUpDeliciousAccountViewController view];
-}
-
-
-- (NSString *)editNibName {
-  return @"EditDeliciousAccount";
-}
-
-- (BOOL)authenticateWithPassword:(NSString *)password {
-	BOOL authenticated = NO;
-	// Test this account to see if we can connect.
-	NSString *userName = [self userName];
-	NSURLRequest *accountRequest = [self accountURLRequestForUserName:userName
-															 password:password];
-	if (accountRequest) {
-		NSURLResponse *accountResponse = nil;
-		NSError *error = nil;
-		[NSURLConnection sendSynchronousRequest:accountRequest
-							  returningResponse:&accountResponse
-										  error:&error];
-		authenticated = (error == nil);
-	}
-	return authenticated;
-	
-	return YES;
 }
 
 - (NSURLRequest *)accountURLRequestForUserName:(NSString *)userName
@@ -83,6 +38,19 @@ static NSString *const kDeliciousAccountTypeName = @"Delicious";
 	return accountRequest;
 }
 
+- (BOOL)validateResult:(NSData *)result
+              response:(NSURLResponse *)response
+                 error:(NSError *)error {
+	BOOL valid = NO;
+	if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+		NSHTTPURLResponse *httpURLResponse = (NSHTTPURLResponse *)response;
+		NSInteger statusCode = [httpURLResponse statusCode];
+		// A 200 means verified, a 401 means not verified.
+		valid = (statusCode == 200);
+	}
+	return valid;
+}
+
 + (BOOL)openDeliciousHomePage {
   NSURL *deliciousURL = [NSURL URLWithString:kDeliciousURLString];
   BOOL success = [[NSWorkspace sharedWorkspace] openURL:deliciousURL];
@@ -100,9 +68,9 @@ static NSString *const kDeliciousAccountTypeName = @"Delicious";
 @end
  
 
-@implementation DeliciousAccountEditController
+@implementation EditDeliciousAccountWindowController
 
-- (IBAction)goToDelicious:(id)sender {
+- (IBAction)openDeliciousHomePage:(id)sender {
   BOOL success = [DeliciousAccount openDeliciousHomePage];
   if (!success) {
     NSBeep();
@@ -121,7 +89,7 @@ static NSString *const kDeliciousAccountTypeName = @"Delicious";
   return self;
 }
 
-- (IBAction)goToDelicious:(id)sender {
+- (IBAction)openDeliciousHomePage:(id)sender {
   BOOL success = [DeliciousAccount openDeliciousHomePage];
   if (!success) {
     NSBeep();
