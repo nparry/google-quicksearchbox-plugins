@@ -1270,6 +1270,7 @@
 				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/external/QSB/QuickSearchBox/QSB/build/${CONFIGURATION}";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				HEADER_SEARCH_PATHS = "${SRCROOT}/external/QSB/QuickSearchBox/QSB/build/${CONFIGURATION}/GTM.framework/Headers";
+				VERMILLION_PLUGIN_API_VERSION = 2;
 			};
 			name = Debug;
 		};

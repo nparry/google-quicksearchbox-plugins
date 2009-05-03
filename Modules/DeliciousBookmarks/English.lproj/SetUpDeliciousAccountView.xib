@@ -42,13 +42,13 @@
 					<object class="NSTextField" id="222078252">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{11, 94}, {162, 17}}</string>
+						<string key="NSFrame">{{18, 90}, {157, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="257252732">
 							<int key="NSCellFlags">68288064</int>
-							<int key="NSCellFlags2">272630784</int>
-							<string key="NSContents">Delicious Account Name:</string>
+							<int key="NSCellFlags2">71304192</int>
+							<string key="NSContents">Account Name:</string>
 							<object class="NSFont" key="NSSupport" id="877674271">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">1.300000e+01</double>
@@ -78,12 +78,12 @@
 					<object class="NSTextField" id="278445815">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{103, 62}, {70, 17}}</string>
+						<string key="NSFrame">{{30, 58}, {145, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="1066625535">
 							<int key="NSCellFlags">68288064</int>
-							<int key="NSCellFlags2">272630784</int>
+							<int key="NSCellFlags2">71304192</int>
 							<string key="NSContents">Password:</string>
 							<reference key="NSSupport" ref="877674271"/>
 							<reference key="NSControlView" ref="278445815"/>
@@ -94,7 +94,7 @@
 					<object class="NSTextField" id="573982667">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{173, 92}, {224, 22}}</string>
+						<string key="NSFrame">{{180, 88}, {217, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="462839794">
@@ -124,7 +124,7 @@
 					<object class="NSSecureTextField" id="669544908">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{173, 60}, {224, 22}}</string>
+						<string key="NSFrame">{{180, 56}, {217, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSSecureTextFieldCell" key="NSCell" id="262889025">
@@ -145,7 +145,7 @@
 					<object class="NSButton" id="923418411">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{307, 12}, {96, 32}}</string>
+						<string key="NSFrame">{{299, 12}, {104, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="542092464">
@@ -165,7 +165,7 @@
 					<object class="NSButton" id="922667850">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{211, 12}, {96, 32}}</string>
+						<string key="NSFrame">{{195, 12}, {104, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="809316052">
@@ -185,13 +185,13 @@
 					<object class="NSTextField" id="906131847">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{57, 128}, {343, 26}}</string>
+						<string key="NSFrame">{{66, 124}, {343, 26}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="583989908">
 							<int key="NSCellFlags">68288064</int>
 							<int key="NSCellFlags2">272630784</int>
-							<string key="NSContents">Set up your Delicious account!</string>
+							<string key="NSContents"> Set up your Delicious account.</string>
 							<object class="NSFont" key="NSSupport">
 								<string key="NSName">ArialRoundedMTBold</string>
 								<double key="NSSize">1.800000e+01</double>
@@ -205,7 +205,7 @@
 					<object class="NSButton" id="1025595032">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{12, 115}, {42, 51}}</string>
+						<string key="NSFrame">{{16, 104}, {48, 48}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="62002">
@@ -218,7 +218,7 @@
 								<int key="NSfFlags">16</int>
 							</object>
 							<reference key="NSControlView" ref="1025595032"/>
-							<int key="NSButtonFlags">-2039201537</int>
+							<int key="NSButtonFlags">-2038677249</int>
 							<int key="NSButtonFlags2">130</int>
 							<object class="NSCustomResource" key="NSNormalImage">
 								<string key="NSClassName">NSImage</string>
@@ -402,14 +402,14 @@
 						<reference key="object" ref="1005"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="222078252"/>
-							<reference ref="278445815"/>
+							<reference ref="1025595032"/>
+							<reference ref="906131847"/>
 							<reference ref="573982667"/>
 							<reference ref="669544908"/>
 							<reference ref="923418411"/>
 							<reference ref="922667850"/>
-							<reference ref="1025595032"/>
-							<reference ref="906131847"/>
+							<reference ref="222078252"/>
+							<reference ref="278445815"/>
 						</object>
 						<reference key="parent" ref="1002"/>
 					</object>
@@ -561,7 +561,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{5, 584}, {417, 164}}</string>
+					<string>{{204, 592}, {417, 164}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{628, 654}</string>
 					<string>{{357, 416}, {480, 272}}</string>
@@ -611,7 +611,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">68</int>
+			<int key="maxID">70</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

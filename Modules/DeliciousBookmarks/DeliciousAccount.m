@@ -16,7 +16,7 @@ static NSString *const kDeliciousAccountTypeName = @"com.google.qsb.delicious.ac
 
 @implementation DeliciousAccount
 
-+ (NSString *)type {
+- (NSString *)type {
   return kDeliciousAccountTypeName;
 }
 

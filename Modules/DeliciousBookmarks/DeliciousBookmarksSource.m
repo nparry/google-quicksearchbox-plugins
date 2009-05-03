@@ -45,13 +45,16 @@ static const NSTimeInterval kErrorReportingInterval = 3600.0;  // 1 hour
 @synthesize connection = connection_;
 
 - (id)initWithConfiguration:(NSDictionary *)configuration {
+	HGSLogDebug(@"DeliciousBookmarks: Instance init");
 	if ((self = [super initWithConfiguration:configuration])) {
+		HGSLogDebug(@"DeliciousBookmarks: Configuring...");
 		NSBundle* sourceBundle = HGSGetPluginBundle();
 		NSString *iconPath = [sourceBundle pathForImageResource:@"delicious"];
 		tagIcon_ = [[NSImage alloc] initByReferencingFile:iconPath];		
 		account_ = [[configuration objectForKey:kHGSExtensionAccount] retain];
 		lastUpdate_ = [@"unknown" retain];
 		if (account_) {
+			HGSLogDebug(@"DeliciousBookmarks: Setting up fetcher");
 			// Fetch, and schedule a timer to update every hour.
 			[self startAsynchronousBookmarkFetch:kLastUpdateURL
 										callback:@selector(checkLastUpdate)
@@ -114,13 +117,14 @@ static const NSTimeInterval kErrorReportingInterval = 3600.0;  // 1 hour
 - (void)startAsynchronousBookmarkFetch:(NSString*)url
 							  callback:(SEL)selector
 						waitIfFetching:(BOOL)shouldWait {
-	
+	HGSLogDebug(@"DeliciousBookmarks: Asked to fetch");
 	KeychainItem* keychainItem 
     = [KeychainItem keychainItemForService:[account_ identifier]
                                   username:nil];
 	NSString *userName = [keychainItem username];
 	NSString *password = [keychainItem password];
 	if ((!currentlyFetching_ || !shouldWait) && userName && password) {
+		HGSLogDebug(@"DeliciousBookmarks: Going ahead with fetch");
 		NSURL *bookmarkRequestURL = [NSURL URLWithString:url];
 		NSMutableURLRequest *bookmarkRequest
 		= [NSMutableURLRequest requestWithURL:bookmarkRequestURL 
@@ -142,6 +146,7 @@ static const NSTimeInterval kErrorReportingInterval = 3600.0;  // 1 hour
 }
 
 - (void)checkLastUpdate {
+	HGSLogDebug(@"DeliciousBookmarks: Checking last update time");
 	NSXMLDocument* bookmarksXML =
 		[[[NSXMLDocument alloc] initWithData:bookmarkData_
 									 options:0
@@ -158,6 +163,7 @@ static const NSTimeInterval kErrorReportingInterval = 3600.0;  // 1 hour
 	bookmarkData_ = nil;
 	
 	if (!upToDate) {
+		HGSLogDebug(@"DeliciousBookmarks: Out of date, need to refresh");
 		[self startAsynchronousBookmarkFetch:kAllBookmarksURL
 									callback:@selector(indexBookmarksFromData)
 							  waitIfFetching:false];		
@@ -165,6 +171,7 @@ static const NSTimeInterval kErrorReportingInterval = 3600.0;  // 1 hour
 }
 
 - (void)indexBookmarksFromData {
+	HGSLogDebug(@"DeliciousBookmarks: Processing bookmark data");
 	NSXMLDocument* bookmarksXML 
     = [[[NSXMLDocument alloc] initWithData:bookmarkData_
                                    options:0
@@ -176,6 +183,7 @@ static const NSTimeInterval kErrorReportingInterval = 3600.0;  // 1 hour
 	NSEnumerator *nodeEnumerator = [bookmarkNodes objectEnumerator];
 	NSXMLElement *bookmark;
 	while ((bookmark = [nodeEnumerator nextObject])) {
+		HGSLogDebug(@"DeliciousBookmarks: Processing a bookmark");
 		NSString *name = [[bookmark attributeForName: @"description"] stringValue];
 		NSString *url =  [[bookmark attributeForName: @"href"] stringValue];
 		NSArray *tags = [[[bookmark attributeForName:@"tag"] stringValue]
@@ -209,7 +217,8 @@ static const NSTimeInterval kErrorReportingInterval = 3600.0;  // 1 hour
 					title:(NSString *)title
 					 type:(NSString *)type
 					 tags:(NSArray *)tags
-					 icon:(NSImage*)iconImage {	
+					 icon:(NSImage*)iconImage {
+	HGSLogDebug(@"DeliciousBookmarks: Indexing a bookmark");
 	if (!url) {
 		return;
 	}
@@ -236,8 +245,9 @@ static const NSTimeInterval kErrorReportingInterval = 3600.0;  // 1 hour
 							source:self
 						attributes:attributes];
 	[self indexResult:result
-		   nameString:title
-	otherStringsArray:tags];
+				 name:title
+		   otherTerms:tags];
+	HGSLogDebug(@"DeliciousBookmarks: Done indexing a bookmark");
 }
 
 - (void)setConnection:(NSURLConnection *)connection {
@@ -253,6 +263,7 @@ static const NSTimeInterval kErrorReportingInterval = 3600.0;  // 1 hour
 
 - (void)connection:(NSURLConnection *)connection 
 didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+	HGSLogDebug(@"DeliciousBookmarks: Request was challenged");
 	HGSAssert(connection == connection_, nil);
 	KeychainItem* keychainItem 
     = [KeychainItem keychainItemForService:[account_ identifier]
@@ -290,6 +301,7 @@ didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
 
 - (void)connection:(NSURLConnection *)connection 
 didReceiveResponse:(NSURLResponse *)response {
+	HGSLogDebug(@"DeliciousBookmarks: Request got response");
 	HGSAssert(connection == connection_, nil);
 	[bookmarkData_ release];
 	bookmarkData_ = [[NSMutableData alloc] init];
@@ -297,11 +309,13 @@ didReceiveResponse:(NSURLResponse *)response {
 
 - (void)connection:(NSURLConnection *)connection 
     didReceiveData:(NSData *)data {
+	HGSLogDebug(@"DeliciousBookmarks: Request got data");
 	HGSAssert(connection == connection_, nil);
 	[bookmarkData_ appendData:data];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+	HGSLogDebug(@"DeliciousBookmarks: Request finished, time to dispatch");
 	HGSAssert(connection == connection_, nil);
 	[self setConnection:nil];
 	[self performSelector:currentCallback_];
@@ -309,6 +323,7 @@ didReceiveResponse:(NSURLResponse *)response {
 
 - (void)connection:(NSURLConnection *)connection 
   didFailWithError:(NSError *)error {
+	HGSLogDebug(@"DeliciousBookmarks: Request failed");
 	HGSAssert(connection == connection_, nil);
 	[self setConnection:nil];
 	currentlyFetching_ = NO;
