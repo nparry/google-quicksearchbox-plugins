@@ -2,7 +2,12 @@
 #import <QSBPluginUI/QSBEditSimpleAccountWindowController.h>
 #import <QSBPluginUI/QSBSetUpSimpleAccountViewController.h>
 
-@interface DeliciousAccount : HGSSimpleAccount
+@interface DeliciousAccount : HGSSimpleAccount {
+@private
+	// Set by and only useful within authentication.
+	BOOL authCompleted_;
+	BOOL authSucceeded_;	
+}
 @end
 
 @interface EditDeliciousAccountWindowController : QSBEditSimpleAccountWindowController

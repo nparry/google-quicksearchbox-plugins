@@ -65,6 +65,7 @@
 		454124A60F467D3C0088B900 /* HGSBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 454124A50F467D3C0088B900 /* HGSBundle.m */; };
 		454124E70F4680E20088B900 /* DeliciousBookmarks.hgs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45B007C10F39488F00CE0C75 /* DeliciousBookmarks.hgs */; };
 		454E35650FACB278009098E3 /* QSBPluginUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454E344E0FACA452009098E3 /* QSBPluginUI.framework */; };
+		454E3A8B0FBA4D3F009098E3 /* GData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4541213F0F4530FE0088B900 /* GData.framework */; };
 		455732CE0F537AEA00164A71 /* HGSBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 454124A50F467D3C0088B900 /* HGSBundle.m */; };
 		455732D00F537AEA00164A71 /* Vermilion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4541213D0F4530FE0088B900 /* Vermilion.framework */; };
 		455732D20F537AEA00164A71 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5717A80DB7C84F00D95EBD /* Cocoa.framework */; };
@@ -387,6 +388,13 @@
 			remoteGlobalIDString = 620CB3080FAA827E0029801C;
 			remoteInfo = QSBPluginUI;
 		};
+		454E3A890FBA4D2A009098E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B77E0DB0F28FC3B00FA2A3C /* GData */;
+			remoteInfo = GData;
+		};
 		455732CA0F537AEA00164A71 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
@@ -514,6 +522,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				454E3A8B0FBA4D3F009098E3 /* GData.framework in Frameworks */,
 				45E35D160F68AD200087BA8F /* GTM.framework in Frameworks */,
 				454E35650FACB278009098E3 /* QSBPluginUI.framework in Frameworks */,
 				454124940F467CC00088B900 /* Vermilion.framework in Frameworks */,
@@ -703,6 +712,7 @@
 				454121830F45312E0088B900 /* PBXTargetDependency */,
 				45E35D130F68AC8F0087BA8F /* PBXTargetDependency */,
 				454E35640FACB24B009098E3 /* PBXTargetDependency */,
+				454E3A8A0FBA4D2A009098E3 /* PBXTargetDependency */,
 			);
 			name = "Delicious Bookmarks";
 			productName = GoogleBookmarks;
@@ -1119,6 +1129,11 @@
 			isa = PBXTargetDependency;
 			name = QSBPluginUI;
 			targetProxy = 454E35630FACB24B009098E3 /* PBXContainerItemProxy */;
+		};
+		454E3A8A0FBA4D2A009098E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GData;
+			targetProxy = 454E3A890FBA4D2A009098E3 /* PBXContainerItemProxy */;
 		};
 		455732C90F537AEA00164A71 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

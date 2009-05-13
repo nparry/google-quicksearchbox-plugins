@@ -3,44 +3,121 @@
 #import "HGSBundle.h"
 #import "HGSLog.h"
 #import "GTMBase64.h"
+#import <GData/GDataHTTPFetcher.h>
+
 
 static NSString *const kDeliciousURLString = @"http://delicious.com/";
 static NSString *const kDeliciousAccountTypeName = @"com.google.qsb.delicious.account";
 
+// Authentication timing constants.
+static const NSTimeInterval kAuthenticationRetryInterval = 0.1;
+static const NSTimeInterval kAuthenticationGiveUpInterval = 30.0;
+static const NSTimeInterval kAuthenticationTimeOutInterval = 15.0;
+
+
 @interface DeliciousAccount ()
+
+// Check the authentication response to see if the account authenticated.
+- (BOOL)validateResponse:(NSURLResponse *)response;
 
 // Open delicious.com in the user's preferred browser.
 + (BOOL)openDeliciousHomePage;
+
+@property (nonatomic, assign) BOOL authCompleted;
+@property (nonatomic, assign) BOOL authSucceeded;
 
 @end
 
 @implementation DeliciousAccount
 
+@synthesize authCompleted = authCompleted_;
+@synthesize authSucceeded = authSucceeded_;
+
 - (NSString *)type {
   return kDeliciousAccountTypeName;
 }
 
-- (NSURLRequest *)accountURLRequestForUserName:(NSString *)userName
-                                      password:(NSString *)password {	
-	NSURL *accountTestURL = [NSURL URLWithString:kLastUpdateURL];
-	NSMutableURLRequest *accountRequest
-    = [NSMutableURLRequest requestWithURL:accountTestURL
-                              cachePolicy:NSURLRequestUseProtocolCachePolicy
-                          timeoutInterval:15.0];
-	NSString *authStr = [NSString stringWithFormat:@"%@:%@",
-						 userName, password];
-	NSData *authData = [authStr dataUsingEncoding:NSASCIIStringEncoding];
-	NSString *authBase64 = [GTMBase64 stringByEncodingData:authData];
-	NSString *authValue = [NSString stringWithFormat:@"Basic %@", authBase64];
-	[accountRequest setValue:authValue forHTTPHeaderField:@"Authorization"];
-	[accountRequest setValue: kPluginUserAgent forHTTPHeaderField:@"User-Agent"];
+#pragma mark Account Editing
 
-	return accountRequest;
+- (void)authenticate {
+	NSString *userName = [self userName];
+	NSString *password = [self password];
+	NSURL *authURL = [NSURL URLWithString:kLastUpdateURL];
+	NSMutableURLRequest *authRequest
+    = [NSMutableURLRequest requestWithURL:authURL
+                              cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                          timeoutInterval:kAuthenticationTimeOutInterval];
+	if (authRequest) {
+		[authRequest setHTTPShouldHandleCookies:NO];
+		GDataHTTPFetcher* authSetFetcher
+		= [GDataHTTPFetcher httpFetcherWithRequest:authRequest];
+		[authSetFetcher setIsRetryEnabled:YES];
+		if ([userName length]) {
+			[authSetFetcher setCredential:
+			 [NSURLCredential credentialWithUser:userName
+										password:password
+									 persistence:NSURLCredentialPersistenceNone]];
+		}
+		[authSetFetcher
+		 setCookieStorageMethod:kGDataHTTPFetcherCookieStorageMethodFetchHistory];
+		[authSetFetcher beginFetchWithDelegate:self
+							 didFinishSelector:@selector(authSetFetcher:
+														 finishedWithData:)
+							   didFailSelector:@selector(authSetFetcher:
+														 failedWithError:)];
+	}
 }
 
-- (BOOL)validateResult:(NSData *)result
-              response:(NSURLResponse *)response
-                 error:(NSError *)error {
+- (BOOL)authenticateWithPassword:(NSString *)password {
+	BOOL authenticated = NO;
+	// Test this account to see if we can connect.
+	NSString *userName = [self userName];
+	NSURL *authURL = [NSURL URLWithString:kLastUpdateURL];
+	NSMutableURLRequest *authRequest
+    = [NSMutableURLRequest requestWithURL:authURL
+                              cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                          timeoutInterval:kAuthenticationTimeOutInterval];
+	if (authRequest) {
+		[authRequest setHTTPShouldHandleCookies:NO];
+		[self setAuthCompleted:NO];
+		[self setAuthSucceeded:NO];
+		GDataHTTPFetcher* authFetcher
+		= [GDataHTTPFetcher httpFetcherWithRequest:authRequest];
+		[authFetcher setIsRetryEnabled:YES];
+		[authFetcher
+		 setCookieStorageMethod:kGDataHTTPFetcherCookieStorageMethodFetchHistory];
+		if (userName) {
+			[authFetcher setCredential:
+			 [NSURLCredential credentialWithUser:userName
+										password:password
+									 persistence:NSURLCredentialPersistenceNone]];
+		}
+		[authFetcher beginFetchWithDelegate:self
+						  didFinishSelector:@selector(authFetcher:
+													  finishedWithData:)
+							didFailSelector:@selector(authFetcher:
+													  failedWithError:)];
+		// Block until this fetch is done to make it appear synchronous. Sleep
+		// for a second and then check again until is has completed.  Just in
+		// case, put an upper limit of 30 seconds before we bail.
+		NSTimeInterval endTime
+		= [NSDate timeIntervalSinceReferenceDate] + kAuthenticationGiveUpInterval;
+		NSRunLoop* loop = [NSRunLoop currentRunLoop];
+		while (![self authCompleted]) {
+			NSDate *sleepTilDate
+			= [NSDate dateWithTimeIntervalSinceNow:kAuthenticationRetryInterval];
+			[loop runUntilDate:sleepTilDate];
+			if ([NSDate timeIntervalSinceReferenceDate] > endTime) {
+				[authFetcher stopFetching];
+				[self setAuthCompleted:YES];
+			}
+		}
+		authenticated = [self authSucceeded];
+	}
+	return authenticated;
+}
+
+- (BOOL)validateResponse:(NSURLResponse *)response {
 	BOOL valid = NO;
 	if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
 		NSHTTPURLResponse *httpURLResponse = (NSHTTPURLResponse *)response;
@@ -57,12 +134,38 @@ static NSString *const kDeliciousAccountTypeName = @"com.google.qsb.delicious.ac
   return success;
 }
 
-#pragma mark NSURLConnection Delegate Methods
+#pragma mark GDataHTTPFetcher Delegate Methods
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-	HGSAssert(connection == [self connection], nil);
-	[self setConnection:nil];
-	[self setAuthenticated:YES];
+- (void)authSetFetcher:(GDataHTTPFetcher *)fetcher
+      finishedWithData:(NSData *)data {
+	NSURLResponse *response = [fetcher response];
+	BOOL authenticated = [self validateResponse:response];
+	[self setAuthenticated:authenticated];
+}
+
+- (void)authSetFetcher:(GDataHTTPFetcher *)fetcher
+       failedWithError:(NSError *)error {
+	HGSLogDebug(@"Authentication failed for account '%@' (%@), error: '%@' (%d)",
+				[self userName], [self type], [error localizedDescription],
+				[error code]);
+	[self setAuthenticated:NO];
+}
+
+- (void)authFetcher:(GDataHTTPFetcher *)fetcher
+   finishedWithData:(NSData *)data {
+	NSURLResponse *response = [fetcher response];
+	BOOL authenticated = [self validateResponse:response];
+	[self setAuthCompleted:YES];
+	[self setAuthSucceeded:authenticated];
+}
+
+- (void)authFetcher:(GDataHTTPFetcher *)fetcher
+    failedWithError:(NSError *)error {
+	HGSLogDebug(@"Authentication failed for account '%@' (%@), error: '%@' (%d)",
+				[self userName], [self type], [error localizedDescription],
+				[error code]);
+	[self setAuthCompleted:YES];
+	[self setAuthSucceeded:NO];
 }
 
 @end
