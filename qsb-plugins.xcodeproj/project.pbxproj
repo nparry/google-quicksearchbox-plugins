@@ -392,7 +392,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 454121040F4530FD0088B900 /* QSB.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 8B77E0DB0F28FC3B00FA2A3C /* GData */;
+			remoteGlobalIDString = 8B77E0DB0F28FC3B00FA2A3C;
 			remoteInfo = GData;
 		};
 		455732CA0F537AEA00164A71 /* PBXContainerItemProxy */ = {

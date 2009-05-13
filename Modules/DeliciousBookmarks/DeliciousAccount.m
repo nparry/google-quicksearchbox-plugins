@@ -17,6 +17,9 @@ static const NSTimeInterval kAuthenticationTimeOutInterval = 15.0;
 
 @interface DeliciousAccount ()
 
+- (GDataHTTPFetcher*)makeAuthFetcherForUsername:(NSString*)userName
+									   password:(NSString*)password;
+
 // Check the authentication response to see if the account authenticated.
 - (BOOL)validateResponse:(NSURLResponse *)response;
 
@@ -42,24 +45,11 @@ static const NSTimeInterval kAuthenticationTimeOutInterval = 15.0;
 - (void)authenticate {
 	NSString *userName = [self userName];
 	NSString *password = [self password];
-	NSURL *authURL = [NSURL URLWithString:kLastUpdateURL];
-	NSMutableURLRequest *authRequest
-    = [NSMutableURLRequest requestWithURL:authURL
-                              cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                          timeoutInterval:kAuthenticationTimeOutInterval];
-	if (authRequest) {
-		[authRequest setHTTPShouldHandleCookies:NO];
-		GDataHTTPFetcher* authSetFetcher
-		= [GDataHTTPFetcher httpFetcherWithRequest:authRequest];
-		[authSetFetcher setIsRetryEnabled:YES];
-		if ([userName length]) {
-			[authSetFetcher setCredential:
-			 [NSURLCredential credentialWithUser:userName
-										password:password
-									 persistence:NSURLCredentialPersistenceNone]];
-		}
-		[authSetFetcher
-		 setCookieStorageMethod:kGDataHTTPFetcherCookieStorageMethodFetchHistory];
+	
+	GDataHTTPFetcher* authSetFetcher
+	= [self makeAuthFetcherForUsername:userName
+							  password:password];
+	if (authSetFetcher) {
 		[authSetFetcher beginFetchWithDelegate:self
 							 didFinishSelector:@selector(authSetFetcher:
 														 finishedWithData:)
@@ -70,28 +60,16 @@ static const NSTimeInterval kAuthenticationTimeOutInterval = 15.0;
 
 - (BOOL)authenticateWithPassword:(NSString *)password {
 	BOOL authenticated = NO;
+	
 	// Test this account to see if we can connect.
 	NSString *userName = [self userName];
-	NSURL *authURL = [NSURL URLWithString:kLastUpdateURL];
-	NSMutableURLRequest *authRequest
-    = [NSMutableURLRequest requestWithURL:authURL
-                              cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                          timeoutInterval:kAuthenticationTimeOutInterval];
-	if (authRequest) {
-		[authRequest setHTTPShouldHandleCookies:NO];
+	GDataHTTPFetcher* authFetcher
+	= [self makeAuthFetcherForUsername:userName
+							  password:password];
+	
+	if (authFetcher) {
 		[self setAuthCompleted:NO];
 		[self setAuthSucceeded:NO];
-		GDataHTTPFetcher* authFetcher
-		= [GDataHTTPFetcher httpFetcherWithRequest:authRequest];
-		[authFetcher setIsRetryEnabled:YES];
-		[authFetcher
-		 setCookieStorageMethod:kGDataHTTPFetcherCookieStorageMethodFetchHistory];
-		if (userName) {
-			[authFetcher setCredential:
-			 [NSURLCredential credentialWithUser:userName
-										password:password
-									 persistence:NSURLCredentialPersistenceNone]];
-		}
 		[authFetcher beginFetchWithDelegate:self
 						  didFinishSelector:@selector(authFetcher:
 													  finishedWithData:)
@@ -115,6 +93,36 @@ static const NSTimeInterval kAuthenticationTimeOutInterval = 15.0;
 		authenticated = [self authSucceeded];
 	}
 	return authenticated;
+}
+
+- (GDataHTTPFetcher*)makeAuthFetcherForUsername:(NSString*)userName
+									   password:(NSString*)password {
+	NSURL *authURL = [NSURL URLWithString:kLastUpdateURL];
+	NSMutableURLRequest *authRequest
+		= [NSMutableURLRequest requestWithURL:authURL
+								  cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+							  timeoutInterval:kAuthenticationTimeOutInterval];
+	if (!authRequest) {
+		return nil;
+	}
+	
+	[authRequest setHTTPShouldHandleCookies:NO];
+	[authRequest setValue: kPluginUserAgent forHTTPHeaderField:@"User-Agent"];
+	
+	GDataHTTPFetcher* authFetcher
+		= [GDataHTTPFetcher httpFetcherWithRequest:authRequest];
+	
+	[authFetcher setIsRetryEnabled:YES];
+	[authFetcher setCookieStorageMethod:kGDataHTTPFetcherCookieStorageMethodFetchHistory];
+	
+	if ([userName length]) {
+		[authFetcher setCredential:
+		 [NSURLCredential credentialWithUser:userName
+									password:password
+								 persistence:NSURLCredentialPersistenceNone]];
+	}
+	
+	return authFetcher;
 }
 
 - (BOOL)validateResponse:(NSURLResponse *)response {
